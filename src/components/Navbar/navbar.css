@@ -1,0 +1,42 @@
+/*Navabar section*/
+.form-search{
+    outline: none;
+    max-width: 50rem;
+    padding-left: 2rem; 
+    border: 1px var(--PRIMARY-COLOR);
+    background-color: var(--SECONDARY-COLOR);
+}
+
+.form-search:focus{
+   background-color: var(--WHITE-COLOR);
+}
+
+.navbar-link{
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.navbar-link:hover{
+    color: var(--WHITE-COLOR);
+    transform: scale(1.1);
+}
+
+.navbar-menu{
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+.btn-shop-now{
+    font-size: 1.6rem;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: var(--PRIMARY-COLOR);
+    color: var(--WHITE-COLOR);
+}
+
+.btn-shop-now:hover{ 
+    transform: scale(1.1);
+    color: var(--WHITE-COLOR);
+}
