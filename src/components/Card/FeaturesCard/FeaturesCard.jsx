@@ -1,7 +1,6 @@
 import React from 'react'
 
 function FeaturesCard({title,description,icon,children}) {
-    console.log(children)
   return (
     <>
         <div className="card align-items-center">
