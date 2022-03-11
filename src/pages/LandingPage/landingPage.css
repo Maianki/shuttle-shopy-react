@@ -1,0 +1,9 @@
+.feature-container{
+    background-color: var(--SECONDARY-COLOR);
+    margin-bottom: 7rem;
+    padding: 2rem;
+}
+
+.category-container{
+    margin-bottom: 7rem;
+}

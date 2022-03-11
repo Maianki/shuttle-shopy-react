@@ -33,3 +33,7 @@ code {
 .text-primary{
   color:var(--PRIMARY-COLOR);
 }
+
+.card{
+  min-width: 30rem;
+}

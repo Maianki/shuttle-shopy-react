@@ -1,4 +1,7 @@
 import { Header } from "./Header"
 import {Navbar} from "./Navbar"
 import {Footer} from "./Footer"
-export { Navbar , Header, Footer }
+import { CategoryCard } from "./Card/CategoryCard"
+import { FeaturesCard } from "./Card/FeaturesCard"
+
+export { Navbar , Header, Footer, CategoryCard , FeaturesCard}
