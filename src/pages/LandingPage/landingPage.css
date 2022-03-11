@@ -7,3 +7,14 @@
 .category-container{
     margin-bottom: 7rem;
 }
+
+.trending-container{
+    margin-bottom: 7rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-rating{
+    padding: 5px 10px;
+    margin-left:1.5rem;
+}

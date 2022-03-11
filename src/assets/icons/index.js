@@ -1,3 +1,3 @@
-import {FaSolidCreditCard, FaSolidHandshake, FaSolidRecycle, FaSolidTruckMoving,IcBaselineLogin} from "./icon"
+import {FaSolidStar,FaSolidCreditCard, FaSolidHandshake, FaSolidRecycle, FaSolidTruckMoving,IcBaselineLogin} from "./icon"
 
-export{FaSolidCreditCard, FaSolidHandshake, FaSolidRecycle, FaSolidTruckMoving,IcBaselineLogin}
+export{FaSolidStar,FaSolidCreditCard, FaSolidHandshake, FaSolidRecycle, FaSolidTruckMoving,IcBaselineLogin}
