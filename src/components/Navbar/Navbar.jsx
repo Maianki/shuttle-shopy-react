@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav className="navbar flex-row">
 
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
             <img className="responsive-img navbar-logo" 
             src={logo} alt="logo"/>
         </a>
