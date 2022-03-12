@@ -7,8 +7,7 @@ import "./navbar.css"
 
 function Navbar() {
   return (
-    <>
-        <nav className="navbar flex-row">
+    <nav className="navbar flex-row">
 
         <a className="navbar-brand" href="#">
             <img className="responsive-img navbar-logo" 
@@ -22,20 +21,20 @@ function Navbar() {
 
         <ul className="navbar-menu list-unstyled flex-row">
             <li className="list-inline">
-                <a className="flex-row  btn btn-outline-secondary btn-shop-now" href="./pages/product-listing-page.html">
+                <a className="flex-row  btn btn-outline-secondary btn-shop-now" href="/">
                     {/* -- Shop Now -- */}
                     Shop now
                 </a>
             </li>   
             <li className="list-inline">
-                <a className="flex-column menu-link" href="./pages/login.html">
+                <a className="flex-column menu-link" href="/">
                     {/* -- login -- */}
                     <img className="navbar-link" src={loginIcon} alt="login icon"/>
                 </a>
             </li>
 
             <li className="list-inline">
-                <a className="flex-column menu-link" href="./pages/wishlist.html">
+                <a className="flex-column menu-link" href="/">
                     {/* -- wishlist  -- */}
                 <img className="navbar-link" src={wishlistIcon} alt="wishlist icon"/>
 
@@ -43,15 +42,14 @@ function Navbar() {
             </li>
                 
             <li className="list-inline">
-                <a className="flex-column menu-link" href="./pages/shopping-cart.html">
+                <a className="flex-column menu-link" href="/">
                     {/* -- cart -- */}
                     <img className="navbar-link" src={cartIcon} alt="add to cart icon"/>
                 </a>
             </li>    
         </ul>
 
-        </nav>
-    </>
+    </nav>
   )
 }
 

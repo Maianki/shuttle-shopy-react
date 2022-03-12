@@ -19,3 +19,7 @@
     margin-left:1.5rem;
     pointer-events: none;
 }
+
+.card-icon{
+    font-size: 3em;
+}

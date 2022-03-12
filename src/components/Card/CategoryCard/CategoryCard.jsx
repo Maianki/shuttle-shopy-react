@@ -1,8 +1,7 @@
 import React from 'react'
 
-function CategoryCard({category,img}) {
+function CategoryCard({category,img,...rest}) {
   return (
-      <>
         <div className="card align-items-center">
             <div className="card-header">
                 <img className="card-img" src={img} alt="badminton racket"/>
@@ -14,7 +13,6 @@ function CategoryCard({category,img}) {
                 <button className="btn btn-primary">Shop Now</button>
             </div>
         </div>
-      </>
   )
 }
 

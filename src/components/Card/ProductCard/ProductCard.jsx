@@ -1,8 +1,7 @@
 import React from 'react'
 
-function ProductCard({badge,img,description,isBtnSaveToWishlist=false,originalPrice,name,discountedPrice,discountPercent,icon}) {
+function ProductCard({badge,img,description,isBtnSaveToWishlist=false,originalPrice,name,discountedPrice,discountPercent,icon,...rest}) {
   return (
-    <>
         <div className="card align-items-center">
             <div className="card-header">
                 <img className="card-img" src={img} alt={name}/>
@@ -22,7 +21,6 @@ function ProductCard({badge,img,description,isBtnSaveToWishlist=false,originalPr
                   
             </div>
         </div>
-    </>
   )
 }
 

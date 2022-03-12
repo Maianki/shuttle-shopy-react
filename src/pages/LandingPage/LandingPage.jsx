@@ -7,7 +7,7 @@ import { productsList } from "../../data/products-data"
 
 function LandingPage() {
   return (
-      <>
+      <div>
         <Navbar/>
         <Header/>
         <main>
@@ -43,7 +43,7 @@ function LandingPage() {
         </main>
 
         <Footer/>
-      </>
+      </div>
   )
 }
 
