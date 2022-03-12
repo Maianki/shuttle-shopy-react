@@ -1,3 +1,4 @@
+@import url("https://shuttleui.netlify.app/components/components-styles/shuttleUI-main.css");
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +11,29 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/*CSS Variables*/
+:root{
+  --PRIMARY-COLOR:#4B4453;
+  --GRAY-COLOR: #ece6e6;
+  --WHITE-COLOR: #FFF;
+  --BLACK-COLOR:#000;
+  --SECONDARY-COLOR:#dbd9dc;
+  --ACCENT-COLOR : #4c5344;
+}
+
+/*Utility class*/
+.flex-row-center{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.text-primary{
+  color:var(--PRIMARY-COLOR);
+}
+
+.card{
+  min-width: 30rem;
 }
