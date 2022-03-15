@@ -26,7 +26,7 @@ export function Login() {
                     <div className="form-check md-vt-1 flex-row">
                         <input type="checkbox" value="demo" id="examplecheck"/>
                         <label className="form-label-inline text-sm text-primary" for="examplecheck"> Remember Me</label>  
-                        <Link className="text-sm text-bold-500 forgot-password" to="forgotPwd" role="button">Forgot Your password</Link> 
+                        <Link className="text-sm text-bold-500 forgot-password" to="forgot-pwd" role="button">Forgot Your password</Link> 
                     </div>
                     
                     <div className="flex-column ">

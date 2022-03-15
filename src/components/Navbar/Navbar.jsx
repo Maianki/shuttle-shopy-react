@@ -22,7 +22,7 @@ function Navbar() {
 
         <ul className="navbar-menu list-unstyled flex-row">
             <li className="list-inline">
-                <Link className="flex-row  btn btn-outline-secondary btn-shop-now" to="/shopNow">
+                <Link className="flex-row  btn btn-outline-secondary btn-shop-now" to="/shop-now">
                     {/* -- Shop Now -- */}
                     Shop now
                 </Link>
