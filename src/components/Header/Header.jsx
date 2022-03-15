@@ -1,6 +1,7 @@
 import React from 'react'
 import "./header.css"
 import heroImg from "../../assets/images/hero.png"
+import {Link} from "react-router-dom"
 
 export function Header() {
   return (
@@ -12,7 +13,7 @@ export function Header() {
         <div className="hero-img-overlay flex-column">
             <h2 className="hero-heading">Your ultimate stop to buy all</h2>
             <h2 className="hero-heading"> badminton accessories</h2>
-            <button className="btn btn-outline-primary hero-cta text-bold-500 text-center" href="/">Shop Now</button>
+            <Link className="btn btn-outline-primary hero-cta text-bold-500 text-center" to="shopNow">Shop Now</Link>
         </div>
 
     </header>

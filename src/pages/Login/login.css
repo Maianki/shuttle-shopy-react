@@ -1,0 +1,50 @@
+/*CSS for page layout*/
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.main {
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/*forms styling*/
+.form-btn {
+  border: none;
+}
+
+.form-heading {
+  margin-left: 0;
+}
+
+.form-input {
+  border-radius: 5px;
+  border: 1px solid var(--PRIMARY-COLOR);
+}
+
+.form-container {
+  min-width: 40rem;
+  border-radius: 10px;
+  background-color: var(--GRAY-COLOR);
+  padding: 4rem;
+}
+
+.forgot-password {
+  color: var(--PRIMARY-COLOR);
+  margin-left: auto;
+}
+
+.toggle-password {
+  cursor: pointer;
+  margin-left: -3rem;
+}
+
+.form-link-text {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--PRIMARY-COLOR);
+}

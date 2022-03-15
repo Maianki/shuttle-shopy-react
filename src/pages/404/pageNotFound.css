@@ -1,0 +1,18 @@
+.show-404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--SECONDARY-COLOR);
+}
+
+.show-not-found {
+  min-width: 44rem;
+  height: 40rem;
+}
+
+.show-404 h1 {
+  text-transform: uppercase;
+  color: var(--PRIMARY-COLOR);
+}
