@@ -28,14 +28,14 @@ function Navbar() {
                 </Link>
             </li>   
             <li className="list-inline">
-                <Link className="flex-column menu-link" to="login">
+                <Link className="flex-column menu-link" to="/login">
                     {/* -- login -- */}
                     <img className="navbar-link" src={loginIcon} alt="login icon"/>
                 </Link>
             </li>
 
             <li className="list-inline">
-                <Link className="flex-column menu-link" to="wishlist">
+                <Link className="flex-column menu-link" to="/wishlist">
                     {/* -- wishlist  -- */}
                 <img className="navbar-link" src={wishlistIcon} alt="wishlist icon"/>
 
@@ -43,7 +43,7 @@ function Navbar() {
             </li>
                 
             <li className="list-inline">
-                <Link className="flex-column menu-link" to="cart">
+                <Link className="flex-column menu-link" to="/cart">
                     {/* -- cart -- */}
                     <img className="navbar-link" src={cartIcon} alt="add to cart icon"/>
                 </Link>

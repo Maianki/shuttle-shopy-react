@@ -1,0 +1,72 @@
+/*Products filter*/
+
+.products-filter {
+  max-width: 28rem;
+  border-radius: 5px;
+  height: auto;
+}
+
+.products-filter-header {
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--GRAY-COLOR);
+}
+
+.products-filter-type {
+  border-bottom: 1px solid var(--GRAY-COLOR);
+  padding: 1rem 1rem 2rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-heading {
+  margin-left: 0;
+}
+
+/*slider styles*/
+
+.price-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1rem;
+  background: var(--GRAY-COLOR);
+  outline: none;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+/*Slider thumb*/
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50px;
+  background: var(--PRIMARY-COLOR);
+  cursor: ew-resize;
+}
+
+.price-slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50px;
+  background: var(--PRIMARY-COLOR);
+  cursor: ew-resize;
+}
+
+.price-slider::-ms-thumb {
+  -webkit-appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50px;
+  background: var(--PRIMARY-COLOR);
+  cursor: ew-resize;
+}
+
+.price-slider:hover {
+  opacity: 1;
+}
+
+.price-slider-range {
+  justify-content: space-between;
+}
