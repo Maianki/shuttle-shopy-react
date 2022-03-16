@@ -1,11 +1,11 @@
 /*CSS for page layout*/
-.container {
+.login-container{
   display: grid;
   height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
 
-.main {
+.login-main {
   justify-content: center;
   align-items: center;
   padding-top: 3rem;
@@ -15,6 +15,7 @@
 /*forms styling*/
 .form-btn {
   border: none;
+  cursor: pointer;
 }
 
 .form-heading {

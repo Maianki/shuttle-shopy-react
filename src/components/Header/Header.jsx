@@ -13,7 +13,7 @@ export function Header() {
         <div className="hero-img-overlay flex-column">
             <h2 className="hero-heading">Your ultimate stop to buy all</h2>
             <h2 className="hero-heading"> badminton accessories</h2>
-            <Link className="btn btn-outline-primary hero-cta text-bold-500 text-center" to="shopNow">Shop Now</Link>
+            <Link className="btn btn-outline-primary hero-cta text-bold-500 text-center" to="shop-now">Shop Now</Link>
         </div>
 
     </header>
