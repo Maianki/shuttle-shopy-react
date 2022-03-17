@@ -1,0 +1,13 @@
+/*CSS for page layout*/
+.signup-container{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+  }
+
+.signup-main {
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
