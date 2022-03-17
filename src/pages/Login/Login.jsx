@@ -15,20 +15,20 @@ export function Login() {
             <div className='form-set'>
               <Label labelFor='email' labelName='Email' />
               <Input
-                type={"email"}
-                id={"email"}
-                name={"email"}
-                placeholder={"testSingh@gmail.com"}
+                type='email'
+                id='email'
+                name='email'
+                placeholder='testSingh@gmail.com'
               />
             </div>
 
             <div className='form-set'>
               <Label labelFor='password' labelName='Password' />
               <Input
-                type={"password"}
-                id={"password"}
-                name={"password"}
-                placeholder={"********"}
+                type='password'
+                id='password'
+                name='password'
+                placeholder='********'
               />
               <span className='toggle-password'>
                 {<BiEyeSlash /> && <BiEye />}

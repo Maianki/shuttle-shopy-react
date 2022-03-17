@@ -15,40 +15,40 @@ export function SignUpPage() {
             <div className='form-set'>
               <Label labelFor='fname' labelName='First Name' />
               <Input
-                type={"text"}
-                id={"fname"}
-                name={"fname"}
-                placeholder={"Singh"}
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder="Singh"
               />
             </div>
 
             <div className='form-set'>
               <Label labelFor='lname' labelName='Last Name' />
               <Input
-                type={"text"}
-                id={"lname"}
-                name={"lname"}
-                placeholder={"Singh"}
+                type="text"
+                id="lname"
+                name="lname"
+                placeholder="Singh"
               />
             </div>
 
             <div className='form-set'>
               <Label labelFor='email' labelName='Email' />
               <Input
-                type={"email"}
-                id={"email"}
-                name={"email"}
-                placeholder={"testSingh@gmail.com"}
+                type="email"
+                id="email"
+                name="email"
+                placeholder="testSingh@gmail.com"
               />
             </div>
 
             <div className='form-set'>
               <Label labelFor='password' labelName='Password' />
               <Input
-                type={"password"}
-                id={"password"}
-                name={"password"}
-                placeholder={"********"}
+                type="password"
+                id="password"
+                name="password"
+                placeholder="********"
               />
               <span className='toggle-password'>
                 <BiEyeSlash />
@@ -58,10 +58,10 @@ export function SignUpPage() {
             <div className='form-set'>
               <Label labelFor='confirm-password' labelName='Confirm Password' />
               <Input
-                type={"password"}
-                id={"confirm-password"}
-                name={"password"}
-                placeholder={"Enter Pasword again"}
+                type="password"
+                id="confirm-password"
+                name="password"
+                placeholder="Enter Pasword again"
               />
               <span className='toggle-password'>
                 <BiEye></BiEye>

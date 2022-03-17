@@ -41,6 +41,7 @@
 }
 
 .toggle-password {
+  font-size: 1.2rem;
   cursor: pointer;
   margin-left: -3rem;
 }
