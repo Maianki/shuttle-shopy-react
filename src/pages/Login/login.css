@@ -16,6 +16,7 @@
 .form-btn {
   border: none;
   cursor: pointer;
+  width: 100%;
 }
 
 .form-heading {
