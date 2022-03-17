@@ -1,0 +1,22 @@
+/*CSS for page layout*/
+.wishlist-container{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+.wishlist-main{
+    margin: 5rem;
+}
+
+/*Wishlist products styling*/
+.wishlist-heading{
+    color: var(--PRIMARY-COLOR);
+}
+
+.wishlist-products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(35rem,1fr));
+    justify-items: center;
+    padding-top: 3rem;   
+}

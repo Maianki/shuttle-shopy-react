@@ -1,6 +1,8 @@
 import {
   BiEye,
   BiEyeSlash,
+  BiHeartFill,
+  BiTrashFill,
   FaSolidStar,
   FaSolidCreditCard,
   FaSolidHandshake,
@@ -12,6 +14,8 @@ import {
 export {
   BiEye,
   BiEyeSlash,
+  BiHeartFill,
+  BiTrashFill,
   FaSolidStar,
   FaSolidCreditCard,
   FaSolidHandshake,
