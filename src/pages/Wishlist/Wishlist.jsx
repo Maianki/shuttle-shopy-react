@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Footer } from "../../components";
+import("./wishlist.css");
 
 export function Wishlist() {
   return (

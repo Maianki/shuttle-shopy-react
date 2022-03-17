@@ -1,0 +1,17 @@
+/*Cart product styling*/
+
+.card-horizontal{
+    max-width:45rem;
+}
+
+.card-horizontal .card-body{
+    min-width: 22rem;
+}
+
+.card-horizontal-footer {
+    margin-top: 6px;
+}
+
+.card-btn{
+    margin-top: 1rem;
+}

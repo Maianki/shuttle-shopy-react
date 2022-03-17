@@ -1,6 +1,6 @@
 import React from "react";
 import { BiHeartFill, BiTrashFill } from "../../../assets/icons";
-import "./card-product-card.css";
+import "./cart-product-card.css";
 
 export function CartProductCard({
   badge,
@@ -16,7 +16,7 @@ export function CartProductCard({
   return (
     <div className='card align-items-center card-horizontal'>
       <div className='card-header'>
-        <img className='card-img card-horizontal-img' src={""} alt={name} />
+        <img className='card-img card-horizontal-img' src={img} alt={name} />
         <span className='card-badge badge'>{badge}</span>
       </div>
       <div className='md-ht-1 card-body'>
