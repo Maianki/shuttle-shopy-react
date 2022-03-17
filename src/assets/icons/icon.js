@@ -21,6 +21,7 @@ export function BiEyeSlash(props) {
   );
 }
 
+
 export function BiHeartFill(props) {
   return (
     <svg width='1em' height='1em' viewBox='0 0 16 16' {...props}>
@@ -40,6 +41,28 @@ export function BiTrashFill(props) {
         fill='currentColor'
         d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'
       ></path>
+    </svg>
+  );
+}
+
+export function BiXCircleFill(props) {
+  return (
+    <svg width='1em' height='1em' viewBox='0 0 16 16' {...props}>
+      <path
+        fill='currentColor'
+        d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293L5.354 4.646z'
+      ></path>
+    </svg>
+  );
+}
+
+export function BiXCircle(props) {
+  return (
+    <svg width='1em' height='1em' viewBox='0 0 16 16' {...props}>
+      <g fill='currentColor'>
+        <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'></path>
+        <path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8L4.646 5.354a.5.5 0 0 1 0-.708z'></path>
+      </g>
     </svg>
   );
 }

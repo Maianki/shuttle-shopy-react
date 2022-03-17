@@ -39,7 +39,12 @@ export function Cart() {
                 }
               )}
           </section>
-          <OrderSummaryCard />
+          <OrderSummaryCard
+            price='2,698'
+            discountedPrice='1000'
+            totalAmount='3698'
+            deliveryCharges='- 500'
+          />
         </section>
       </main>
       <Footer />

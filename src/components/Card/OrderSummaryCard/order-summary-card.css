@@ -1,0 +1,29 @@
+
+/*Order Details*/
+
+.card-order-heading{
+    border-bottom:1px solid var(--GRAY-COLOR);
+    padding-bottom: 1.2rem;
+    color: var(--PRIMARY-COLOR);
+}
+
+.order-item{
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
+.order-delivery-charge{
+    padding-bottom: 2rem;
+    border-bottom:1px solid var(--GRAY-COLOR);
+}
+
+.order-item-text{
+    font-size: 1.4rem;
+}
+
+.total-price{
+    border-bottom: 1px solid var(--GRAY-COLOR);
+    margin-bottom: 1rem;
+    color: var(--PRIMARY-COLOR);
+}
