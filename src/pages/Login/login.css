@@ -16,6 +16,7 @@
 .form-btn {
   border: none;
   cursor: pointer;
+  width: 100%;
 }
 
 .form-heading {
@@ -40,6 +41,7 @@
 }
 
 .toggle-password {
+  font-size: 1.2rem;
   cursor: pointer;
   margin-left: -3rem;
 }

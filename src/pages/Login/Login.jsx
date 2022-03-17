@@ -1,7 +1,8 @@
 import React from 'react'
-import {Navbar, Footer } from "../../components"
-import {Link} from "react-router-dom"
-import "./login.css"
+import { Navbar, Footer, Input, Label } from "../../components";
+import { BiEye, BiEyeSlash } from "../../assets/icons";
+import { Link } from "react-router-dom";
+import "./login.css";
 
 export function Login() {
   return (
@@ -12,31 +13,26 @@ export function Login() {
           <h2 className='form-heading'>Login</h2>
           <form>
             <div className='form-set'>
-              <label className='form-label' for='email'>
-                Email:
-              </label>
-              <input
-                className='form-input form-input-lg pd-1'
+              <Label labelFor='email' labelName='Email' />
+              <Input
                 type='email'
                 id='email'
                 name='email'
-                placeholder='test@gmail.com'
-                required
+                placeholder='testSingh@gmail.com'
               />
             </div>
 
             <div className='form-set'>
-              <label className='form-label' for='password'>
-                Password:
-              </label>
-              <input
-                className='form-input form-input-lg pd-1'
+              <Label labelFor='password' labelName='Password' />
+              <Input
                 type='password'
                 id='password'
                 name='password'
-                placeholder='*********'
-                required
+                placeholder='********'
               />
+              <span className='toggle-password'>
+                {<BiEyeSlash /> && <BiEye />}
+              </span>
             </div>
 
             <div className='form-check md-vt-1 flex-row'>
@@ -45,7 +41,6 @@ export function Login() {
                 className='form-label-inline text-sm text-primary'
                 for='examplecheck'
               >
-                {" "}
                 Remember Me
               </label>
               <Link
@@ -71,7 +66,7 @@ export function Login() {
               </p>
               <Link
                 className='btn btn-secondary text-center'
-                to='signup'
+                to='/signup'
                 role='button'
               >
                 Create Your Account

@@ -5,6 +5,8 @@ import { CategoryCard } from "./Card/CategoryCard"
 import { FeaturesCard } from "./Card/FeaturesCard"
 import { ProductCard } from "./Card/ProductCard"
 import { ProductsFilter } from "./ProductsFilter";
+import { Input } from "./Form/Input/Input";
+import { Label } from "./Form/Label/Label";
 
 export {
   Navbar,
@@ -14,4 +16,6 @@ export {
   FeaturesCard,
   ProductCard,
   ProductsFilter,
+  Input,
+  Label,
 };
