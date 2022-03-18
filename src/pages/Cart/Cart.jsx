@@ -6,9 +6,11 @@ import {
   OrderSummaryCard,
 } from "../../components";
 import { productsList } from "../../data/products-data";
+import { useDocumentTitle } from "../../hooks";
 import "./cart.css";
 
 export function Cart() {
+  useDocumentTitle("Cart");
   return (
     <div classNameName='cart-container'>
       <Navbar />

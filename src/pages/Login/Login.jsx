@@ -2,9 +2,11 @@ import React from 'react'
 import { Navbar, Footer, Input, Label } from "../../components";
 import { BiEye, BiEyeSlash } from "../../assets/icons";
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from "../../hooks";
 import "./login.css";
 
 export function Login() {
+  useDocumentTitle("Login");
   return (
     <div className='login-container'>
       <Navbar />

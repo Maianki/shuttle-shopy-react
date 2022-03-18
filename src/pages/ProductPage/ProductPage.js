@@ -3,15 +3,17 @@ import "./product-page.css";
 import { Navbar, Footer, ProductCard } from "../../components";
 import { ProductsFilter } from "../../components";
 import { productsList } from "../../data/products-data";
+import { useDocumentTitle } from "../../hooks";
 
 export function ProductPage() {
+  useDocumentTitle("Products page");
   return (
     <div className='productpage-container'>
       <Navbar />
-      <aside class='flex-column products-filter card'>
+      <aside className='flex-column products-filter card'>
         <ProductsFilter />
       </aside>
-      <main class='productpage-main flex-row'>
+      <main className='productpage-main flex-row'>
         {productsList.map(
           ({
             badge,
