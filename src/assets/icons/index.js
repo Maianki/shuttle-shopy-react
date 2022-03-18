@@ -1,6 +1,10 @@
-import {
+export {
   BiEye,
   BiEyeSlash,
+  BiHeartFill,
+  BiTrashFill,
+  BiXCircleFill,
+  BiXCircle,
   FaSolidStar,
   FaSolidCreditCard,
   FaSolidHandshake,
@@ -8,14 +12,3 @@ import {
   FaSolidTruckMoving,
   IcBaselineLogin,
 } from "./icon";
-
-export {
-  BiEye,
-  BiEyeSlash,
-  FaSolidStar,
-  FaSolidCreditCard,
-  FaSolidHandshake,
-  FaSolidRecycle,
-  FaSolidTruckMoving,
-  IcBaselineLogin,
-};

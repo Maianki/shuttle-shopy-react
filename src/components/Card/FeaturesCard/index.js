@@ -1,3 +1,1 @@
-import { FeaturesCard } from "./FeaturesCard";
-
-export {FeaturesCard}
+export { FeaturesCard } from "./FeaturesCard";
