@@ -2,11 +2,12 @@ import React from "react";
 import "./product-page.css";
 import { Navbar, Footer, ProductCard } from "../../components";
 import { ProductsFilter } from "../../components";
-import { productsList } from "../../data/products-data";
-import { useDocumentTitle } from "../../hooks";
+import { useDocumentTitle, useAxios } from "../../hooks";
+import { PRODUCTS_API } from "../../constants/apiEndPoints";
 
 export function ProductPage() {
   useDocumentTitle("Products page");
+  const { response: productsList } = useAxios(PRODUCTS_API);
   return (
     <div className='productpage-container'>
       <Navbar />
@@ -14,29 +15,9 @@ export function ProductPage() {
         <ProductsFilter />
       </aside>
       <main className='productpage-main flex-row'>
-        {productsList.map(
-          ({
-            badge,
-            img,
-            name,
-            description,
-            price: { original, discounted, discount },
-            Icon,
-          }) => {
-            return (
-              <ProductCard
-                badge={badge}
-                img={img}
-                discountPercent={discount}
-                description={description}
-                originalPrice={original}
-                discountedPrice={discounted}
-                name={name}
-                icon={<Icon />}
-              />
-            );
-          }
-        )}
+        {productsList.map((product) => {
+          return <ProductCard key={product._id} product={product} />;
+        })}
       </main>
       <Footer />
     </div>

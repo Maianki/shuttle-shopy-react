@@ -1,2 +1,2 @@
-export const productsAPI = "api/products";
-export const categoriesAPI = "api/categories";
+export const PRODUCTS_API = "api/products";
+export const CATEGORIES_API = "api/categories";

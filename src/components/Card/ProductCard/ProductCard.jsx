@@ -1,18 +1,20 @@
 import React from 'react'
-import { BiXCircle } from "../../../assets/icons";
+import { BiXCircle, FaSolidStar } from "../../../assets/icons";
 
 function ProductCard({
-  badge,
-  img,
-  isDismissBtn = false,
-  description,
-  isBtnSaveToWishlist = false,
-  originalPrice,
-  name,
-  discountedPrice,
-  discountPercent,
-  icon,
-  ...rest
+  product: {
+    badge,
+    img,
+    isDismissBtn = false,
+    description,
+    isBtnSaveToWishlist = false,
+    price: {
+      original: originalPrice,
+      discounted: discountedPrice,
+      discount: discountPercent,
+    },
+    name,
+  },
 }) {
   return (
     <div className='card align-items-center'>
@@ -29,7 +31,7 @@ function ProductCard({
         <h3>
           {name}
           <span className='btn btn-primary product-rating text-xs'>
-            4 {icon}
+            4 <FaSolidStar />
           </span>
         </h3>
         <p className='card-description'>{description}</p>

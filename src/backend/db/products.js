@@ -1,4 +1,6 @@
 import { v4 as uuid } from "uuid";
+import shuttle from "../../assets/images/shuttle-img.jpg";
+import badminton from "../../assets/images/yonex-badminton.jpg";
 
 /**
  * Product Database can be added here.
@@ -8,23 +10,50 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    name: "Yonex Feather Shuttle",
+    badge: "trending",
+    price: {
+      original: 1299,
+      discounted: 490,
+      discount: 62,
+    },
+    description: "The go to shuttle for badminton lovers",
+    img: shuttle,
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    name: "Yonex Badminton",
+    badge: "trending",
+    price: {
+      original: 1299,
+      discounted: 490,
+      discount: 62,
+    },
+    description: "The best badminton racket for badminton lovers",
+    img: badminton,
   },
   {
     _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    name: "Yonex Badminton",
+    badge: "trending",
+    price: {
+      original: 1299,
+      discounted: 490,
+      discount: 62,
+    },
+    description: "The best badminton racket for badminton lovers",
+    img: badminton,
+  },
+  {
+    _id: uuid(),
+    name: "yonex Feather Shuttle",
+    badge: "trending",
+    price: {
+      original: 1299,
+      discounted: 490,
+      discount: 62,
+    },
+    description: "The go to shuttle for badminton lovers",
+    img: shuttle,
   },
 ];

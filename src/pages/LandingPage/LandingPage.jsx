@@ -9,15 +9,14 @@ import {
   ProductCard,
 } from "../../components";
 import { useDocumentTitle } from "../../hooks";
-// import { categories } from "../../data/category-data";
-import { categoriesAPI } from "../../constants/apiEndPoints";
+import { CATEGORIES_API, PRODUCTS_API } from "../../constants/apiEndPoints";
 import { features } from "../../data/features-data";
-import { productsList } from "../../data/products-data";
-import { useAxios } from "../../hooks/useAxios";
+import { useAxios } from "../../hooks";
 
 function LandingPage() {
   useDocumentTitle("Home Page");
-  const { response: categories } = useAxios(categoriesAPI);
+  const { response: categories } = useAxios(CATEGORIES_API);
+  const { response: productsList } = useAxios(PRODUCTS_API);
 
   return (
     <div>
@@ -48,8 +47,8 @@ function LandingPage() {
         {/* popular purchase */}
         <h1 className='text-center md-btm-3'>Popular Purchase</h1>
         <section className='trending-container flex-row-center'>
-          {productsList.map((product) => {
-            return <ProductCard product={product} />;
+          {productsList.slice(0, 4).map((product) => {
+            return <ProductCard key={product._id} product={product} />;
           })}
         </section>
       </main>
