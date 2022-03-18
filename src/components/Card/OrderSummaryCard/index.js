@@ -1,2 +1,1 @@
-import { OrderSummaryCard } from "./OrderSummaryCard";
-export { OrderSummaryCard };
+export { OrderSummaryCard } from "./OrderSummaryCard";

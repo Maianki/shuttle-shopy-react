@@ -1,3 +1,1 @@
-import { CategoryCard } from "./CategoryCard";
-
-export {CategoryCard}
+export { CategoryCard } from "./CategoryCard";

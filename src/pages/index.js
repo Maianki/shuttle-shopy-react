@@ -1,17 +1,7 @@
-import {LandingPage } from "./LandingPage/LandingPage";
-import {PageNotFound} from "./404/PageNotFound";
-import { ProductPage } from "./ProductPage/ProductPage";
-import { Login } from "./Login/Login";
-import { SignUpPage } from "./SignupPage/SignUpPage";
-import { Wishlist } from "./Wishlist/Wishlist";
-import { Cart } from "./Cart/Cart";
-
-export {
-  LandingPage,
-  PageNotFound,
-  ProductPage,
-  Login,
-  SignUpPage,
-  Wishlist,
-  Cart,
-};
+export { LandingPage } from "./LandingPage/LandingPage";
+export { PageNotFound } from "./404/PageNotFound";
+export { ProductPage } from "./ProductPage/ProductPage";
+export { Login } from "./Login/Login";
+export { SignUpPage } from "./SignupPage/SignUpPage";
+export { Wishlist } from "./Wishlist/Wishlist";
+export { Cart } from "./Cart/Cart";
