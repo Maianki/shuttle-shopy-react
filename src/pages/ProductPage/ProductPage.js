@@ -2,39 +2,22 @@ import React from "react";
 import "./product-page.css";
 import { Navbar, Footer, ProductCard } from "../../components";
 import { ProductsFilter } from "../../components";
-import { productsList } from "../../data/products-data";
+import { useDocumentTitle, useAxios } from "../../hooks";
+import { PRODUCTS_API } from "../../constants/apiEndPoints";
 
 export function ProductPage() {
+  useDocumentTitle("Products page");
+  const { response: productsList } = useAxios(PRODUCTS_API);
   return (
     <div className='productpage-container'>
       <Navbar />
-      <aside class='flex-column products-filter card'>
+      <aside className='flex-column products-filter card'>
         <ProductsFilter />
       </aside>
-      <main class='productpage-main flex-row'>
-        {productsList.map(
-          ({
-            badge,
-            img,
-            name,
-            description,
-            price: { original, discounted, discount },
-            Icon,
-          }) => {
-            return (
-              <ProductCard
-                badge={badge}
-                img={img}
-                discountPercent={discount}
-                description={description}
-                originalPrice={original}
-                discountedPrice={discounted}
-                name={name}
-                icon={<Icon />}
-              />
-            );
-          }
-        )}
+      <main className='productpage-main flex-row'>
+        {productsList.map((product) => {
+          return <ProductCard key={product._id} product={product} />;
+        })}
       </main>
       <Footer />
     </div>

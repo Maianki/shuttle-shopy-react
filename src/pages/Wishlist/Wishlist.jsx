@@ -1,8 +1,10 @@
 import React from "react";
 import { Navbar, Footer } from "../../components";
+import { useDocumentTitle } from "../../hooks";
 import("./wishlist.css");
 
 export function Wishlist() {
+  useDocumentTitle("Wishlist");
   return (
     <div className='wishlist-container'>
       <Navbar />

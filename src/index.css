@@ -37,3 +37,7 @@ code {
 .card {
   min-width: 30rem;
 }
+
+.card img{
+  aspect-ratio: 4/3;
+}
