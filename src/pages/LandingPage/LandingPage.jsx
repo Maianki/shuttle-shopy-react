@@ -47,9 +47,11 @@ function LandingPage() {
         {/* popular purchase */}
         <h1 className='text-center md-btm-3'>Popular Purchase</h1>
         <section className='trending-container flex-row-center'>
-          {productsList.slice(0, 4).map((product) => {
-            return <ProductCard key={product._id} product={product} />;
-          })}
+          {productsList
+            .filter((product) => product.badge === "Trending")
+            .map((product) => {
+              return <ProductCard key={product._id} product={product} />;
+            })}
         </section>
       </main>
 

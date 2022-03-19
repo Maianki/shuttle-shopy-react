@@ -1,6 +1,7 @@
 export {
   BiEye,
   BiEyeSlash,
+  BiHeart,
   BiHeartFill,
   BiTrashFill,
   BiXCircleFill,
