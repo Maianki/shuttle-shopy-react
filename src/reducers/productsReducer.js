@@ -1,5 +1,6 @@
 export const productsReducer = (state, action) => {
   const { payload, type } = action;
+  const { productsList } = state;
   switch (type) {
     case "initialize":
       return { ...state, productsList: payload };
@@ -26,6 +27,18 @@ export const productsReducer = (state, action) => {
 
     case "filterByPriceRange":
       return { ...state, filterByPriceRange: payload };
+
+    case "clearAll":
+      return { ...payload, productsList: productsList };
+
+    case "setCategoryFromHome":
+      const { initialState, categoryName } = payload;
+      return {
+        ...initialState,
+        productsList: productsList,
+        filterByCategory: [categoryName],
+      };
+
     default:
       return state;
   }

@@ -35,6 +35,9 @@
 }
 
 /* Card */
+.btn-category-card{
+  color:var(--WHITE-COLOR)
+}
 
 .card-btn {
   margin-top: 1rem;

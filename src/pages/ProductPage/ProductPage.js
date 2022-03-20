@@ -3,14 +3,12 @@ import "./product-page.css";
 import { Navbar, Footer, ProductCard } from "../../components";
 import { ProductsFilter } from "../../components";
 import { useDocumentTitle } from "../../hooks";
-// import { useProducts } from "../../context/products-context";
 import { useFilteredData } from "../../hooks/useFilteredData";
 
 export function ProductPage() {
   useDocumentTitle("Products page");
-  const { finalFilteredData: productsList } = useFilteredData();
 
-  useFilteredData();
+  const { finalFilteredData: productsList } = useFilteredData();
 
   return (
     <div className='productpage-container'>

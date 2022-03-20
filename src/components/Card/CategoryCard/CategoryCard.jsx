@@ -1,6 +1,9 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import { useProducts } from "../../../context/products-context";
 
 function CategoryCard({ category: { categoryName, img } }) {
+  const { productsDispatcher, initialState } = useProducts();
   return (
     <div className='card align-items-center'>
       <div className='card-header'>
@@ -10,7 +13,22 @@ function CategoryCard({ category: { categoryName, img } }) {
         {categoryName}
       </div>
       <div className='card-footer'>
-        <button className='btn btn-primary'>Shop Now</button>
+        <Link to='/shop-now' className='btn-category-card'>
+          <button
+            className='btn btn-primary'
+            onClick={() =>
+              productsDispatcher({
+                type: "setCategoryFromHome",
+                payload: {
+                  initialState,
+                  categoryName,
+                },
+              })
+            }
+          >
+            Shop Now
+          </button>
+        </Link>
       </div>
     </div>
   );
