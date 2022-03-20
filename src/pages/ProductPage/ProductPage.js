@@ -2,12 +2,14 @@ import React from "react";
 import "./product-page.css";
 import { Navbar, Footer, ProductCard } from "../../components";
 import { ProductsFilter } from "../../components";
-import { useDocumentTitle, useAxios } from "../../hooks";
-import { PRODUCTS_API } from "../../constants/apiEndPoints";
+import { useDocumentTitle } from "../../hooks";
+import { useFilteredData } from "../../hooks/useFilteredData";
 
 export function ProductPage() {
   useDocumentTitle("Products page");
-  const { response: productsList } = useAxios(PRODUCTS_API);
+
+  const { finalFilteredData: productsList } = useFilteredData();
+
   return (
     <div className='productpage-container'>
       <Navbar />

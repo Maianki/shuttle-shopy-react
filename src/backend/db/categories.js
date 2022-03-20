@@ -13,21 +13,25 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "Rackets",
+    value: "rackets",
     img: rackets,
   },
   {
     _id: uuid(),
     categoryName: "Shuttles",
+    value: "shuttles",
     img: shuttles,
   },
   {
     _id: uuid(),
     categoryName: "Badminton Bags",
+    value: "badminton-bags",
     img: bag,
   },
   {
     _id: uuid(),
     categoryName: "Badminton Shoes",
+    value: "badminton-shoes",
     img: shoes,
   },
 ];

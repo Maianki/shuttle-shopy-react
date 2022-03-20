@@ -1,33 +1,30 @@
 import React from "react";
-import { CATEGORIES_API } from "../../../constants/apiEndPoints";
+import { ratingFilterData } from "../../../data/rating-filter-data";
 import { useProducts } from "../../../context/products-context";
-import { useAxios } from "../../../hooks";
-
-export function CategoriesFilter() {
+export function FilterByRating() {
   const { products, productsDispatcher } = useProducts();
-  const { response: categoryFilterData } = useAxios(CATEGORIES_API);
+  console.log(products.filterByRating);
 
   return (
-    <li className='flex-column products-filter-type'>
-      <h3 className='filter-heading'>Categories</h3>
-
-      {categoryFilterData.map(({ id, categoryName, value }) => {
+    <li className='flex-column md-ht-1'>
+      <h3 className='filter-heading'>Customer Ratings</h3>
+      {ratingFilterData.map(({ id, rating, value }) => {
         return (
           <div key={id} className='form-check'>
             <input
               type='checkbox'
               value={value}
               id={value}
-              checked={products.filterByCategory.includes(categoryName)}
               onChange={() =>
                 productsDispatcher({
-                  type: "filterByCategory",
-                  payload: categoryName,
+                  type: "filterByRating",
+                  payload: Number(value),
                 })
               }
+              checked={products.filterByRating.includes(Number(value))}
             />
             <label className='form-label-inline' htmlFor={value}>
-              {categoryName}
+              {rating}
             </label>
           </div>
         );

@@ -35,7 +35,8 @@ code {
 }
 
 .card {
-  min-width: 30rem;
+  min-width: 31rem;
+  max-width: 31rem;
 }
 
 .card img{

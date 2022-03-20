@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { makeServer } from "./server";
 import {BrowserRouter} from "react-router-dom";
+import { ProductsProvider } from "./context/products-context";
 
 // Call make Server
 makeServer();
@@ -11,10 +12,12 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ProductsProvider>
+        <App />
+      </ProductsProvider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
