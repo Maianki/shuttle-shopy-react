@@ -7,7 +7,7 @@ export function PriceRangeFilter() {
   return (
     <li className='flex-column products-filter-type'>
       <h3 className='filter-heading'>
-        Price (&lt;{products.filterByPriceRange})
+        Price (&gt;{products.filterByPriceRange})
       </h3>
       <input
         className='price-slider'

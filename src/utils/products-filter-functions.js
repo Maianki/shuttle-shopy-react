@@ -15,7 +15,7 @@ const getFilteredByRating = (products, filterByRating) => {
   } else {
     return products;
   }
-};
+};;
 
 const getFilteredByPriceRange = (products, priceRange) => {
   return products.filter(
