@@ -19,6 +19,10 @@
   grid-area: products-filter;
 }
 
+.productpage-main .card{
+  max-height: 48.5rem;
+}
+
 .productpage-container .productpage-main {
   grid-area: main;
   margin: 4rem;

@@ -19,7 +19,7 @@ export const products = [
     _id: uuid(),
     name: "Yonex Feather Shuttle",
     badge: "Trending",
-    category: "shuttles",
+    category: "Shuttles",
     price: {
       original: 1299,
       discounted: 490,
@@ -28,7 +28,6 @@ export const products = [
     description: "The go to shuttle for badminton lovers",
     img: featherShuttle,
     isOutOfStock: false,
-    isFastDelivery: true,
     rating: 4,
   },
   {
@@ -44,7 +43,6 @@ export const products = [
     description: "Conquer the opponent with power and flexibility.",
     img: racketArcsaber,
     isOutOfStock: false,
-    isFastDelivery: false,
     rating: 3.8,
   },
   {
@@ -60,14 +58,13 @@ export const products = [
     description: "The best badminton racket for badminton lovers",
     img: racketNanoray,
     isOutOfStock: false,
-    isFastDelivery: false,
     rating: 4.3,
   },
   {
     _id: uuid(),
     name: "Yonex Plastic Shuttle",
     badge: "New",
-    category: "shuttles",
+    category: "Shuttles",
     price: {
       original: 1299,
       discounted: 490,
@@ -76,7 +73,6 @@ export const products = [
     description: "The go to shuttle for badminton lovers",
     img: plasticShuttle,
     isOutOfStock: true,
-    isFastDelivery: false,
     rating: 2.8,
   },
   {
@@ -91,6 +87,7 @@ export const products = [
     },
     description: "Store and carry your badminton accessories in Bag.",
     img: badmintonBag,
+    isOutOfStock: false,
     rating: 4.8,
   },
   {
@@ -105,7 +102,6 @@ export const products = [
     },
     description: "Durable and long lasting badminton shoes",
     img: shbShoes,
-    isOutOfStock: true,
     isFastDelivery: false,
     rating: 3.5,
   },
@@ -122,7 +118,6 @@ export const products = [
     description: "The YONEX Power Cushion absorbs shock.",
     img: powerCushionShoes,
     isOutOfStock: true,
-    isFastDelivery: false,
     rating: 4.1,
   },
 ];

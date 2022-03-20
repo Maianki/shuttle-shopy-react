@@ -8,15 +8,18 @@ import {
   FeaturesCard,
   ProductCard,
 } from "../../components";
-import { useDocumentTitle } from "../../hooks";
-import { CATEGORIES_API, PRODUCTS_API } from "../../constants/apiEndPoints";
+import { useDocumentTitle, useAxios } from "../../hooks";
+import { CATEGORIES_API } from "../../constants/apiEndPoints";
 import { features } from "../../data/features-data";
-import { useAxios } from "../../hooks";
+import { useProducts } from "../../context/products-context";
 
 function LandingPage() {
   useDocumentTitle("Home Page");
+  const {
+    products: { productsList },
+  } = useProducts();
+
   const { response: categories } = useAxios(CATEGORIES_API);
-  const { response: productsList } = useAxios(PRODUCTS_API);
 
   return (
     <div>
@@ -33,9 +36,10 @@ function LandingPage() {
         {/* Featured Container */}
         <h1 className='text-center md-btm-3'>Why choose Shuttle Shopy</h1>
         <section className='flex-row-center feature-container'>
-          {features.map(({ title, description, Icon }) => {
+          {features.map(({ _id, title, description, Icon }) => {
             return (
               <FeaturesCard
+                key={_id}
                 title={title}
                 description={description}
                 icon={<Icon />}
@@ -44,7 +48,6 @@ function LandingPage() {
           })}
         </section>
 
-        {/* popular purchase */}
         <h1 className='text-center md-btm-3'>Popular Purchase</h1>
         <section className='trending-container flex-row-center'>
           {productsList
