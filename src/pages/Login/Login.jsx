@@ -1,19 +1,40 @@
-import React from 'react'
+import React, { useState } from "react";
 import { Navbar, Footer, Input, Label } from "../../components";
 import { BiEye, BiEyeSlash } from "../../assets/icons";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from "../../hooks";
+import { useAuth } from "../../context/auth-context";
 import "./login.css";
 
 export function Login() {
+  const { handleSignIn } = useAuth();
+
   useDocumentTitle("Login");
+  const [userDetails, setUserDetails] = useState({
+    email: "",
+    password: "",
+    isRememberMe: true,
+  });
+
+  const [showPassWord, setShowPassword] = useState(false);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    handleSignIn(userDetails);
+  };
+
+  const guestLoginHandler = (e) => {
+    e.preventDefault();
+    handleSignIn({ email: "johndoe@gmail.com", password: "johnDoe123" });
+  };
+
   return (
     <div className='login-container'>
       <Navbar />
       <main className='login-main flex-column'>
         <div className='form-container card'>
           <h2 className='form-heading'>Login</h2>
-          <form>
+          <form onSubmit={submitHandler}>
             <div className='form-set'>
               <Label labelFor='email' labelName='Email' />
               <Input
@@ -21,27 +42,46 @@ export function Login() {
                 id='email'
                 name='email'
                 placeholder='testSingh@gmail.com'
+                value={userDetails.email}
+                setUserDetails={setUserDetails}
+                userDetails={userDetails}
               />
             </div>
 
             <div className='form-set'>
               <Label labelFor='password' labelName='Password' />
               <Input
-                type='password'
+                type={showPassWord ? `text` : `password`}
                 id='password'
                 name='password'
                 placeholder='********'
+                value={userDetails.password}
+                setUserDetails={setUserDetails}
+                userDetails={userDetails}
               />
-              <span className='toggle-password'>
-                {<BiEyeSlash /> && <BiEye />}
+              <span
+                className='toggle-password'
+                onClick={() => setShowPassword((prev) => !prev)}
+              >
+                {showPassWord ? <BiEye /> : <BiEyeSlash />}
               </span>
             </div>
 
             <div className='form-check md-vt-1 flex-row'>
-              <input type='checkbox' value='demo' id='examplecheck' />
+              <input
+                type='checkbox'
+                value={userDetails.isRememberMe}
+                onChange={() =>
+                  setUserDetails({
+                    ...userDetails,
+                    isRememberMe: !userDetails.isRememberMe,
+                  })
+                }
+                id='remember-me'
+              />
               <label
                 className='form-label-inline text-sm text-primary'
-                for='examplecheck'
+                htmlFor='remember-me'
               >
                 Remember Me
               </label>
@@ -58,9 +98,12 @@ export function Login() {
               <input
                 type='submit'
                 className='btn btn-primary form-btn text-center'
-                value='Sign In'
+                value='sign in'
               />
-              <button className='btn btn-secondary form-btn text-center'>
+              <button
+                onClick={guestLoginHandler}
+                className='btn btn-secondary form-btn text-center'
+              >
                 Guest login
               </button>
               <p className='text-sm text-center text-bold-500 text-primary form-link-text'>

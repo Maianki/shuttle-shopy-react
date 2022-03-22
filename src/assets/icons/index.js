@@ -6,6 +6,7 @@ export {
   BiTrashFill,
   BiXCircleFill,
   BiXCircle,
+  FaRegularUserCircle,
   FaSolidStar,
   FaSolidCreditCard,
   FaSolidHandshake,

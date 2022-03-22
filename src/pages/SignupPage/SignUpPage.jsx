@@ -1,27 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Footer, Input, Label } from "../../components";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from "../../hooks";
 import "./sign-up-page.css";
 import { BiEye, BiEyeSlash } from "../../assets/icons";
+import { useAuth } from "../../context/auth-context";
 
 export function SignUpPage() {
   useDocumentTitle("Signup");
+  const { handleSignup } = useAuth();
+
+  const [userDetails, setUserDetails] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    termsAndCondition: false,
+  });
+
+  const [showPassWord, setShowPassword] = useState({
+    password: false,
+    confirmPassword: false,
+  });
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    handleSignup(userDetails);
+
+    setUserDetails({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      termsAndCondition: "",
+    });
+
+    console.log("From signUpHandler", userDetails);
+  };
+
   return (
-    <div classNameName='signup-container'>
+    <div className='signup-container'>
       <Navbar />
       <main className='signup-main flex-column'>
         <div className='form-container card'>
           <h2 className='form-heading'>Sign Up</h2>
-          <form>
+          <form onSubmit={submitHandler}>
             <div className='form-set'>
-              <Label labelFor='fname' labelName='First Name' />
-              <Input type='text' id='fname' name='fname' placeholder='Singh' />
+              <Label labelFor='firstName' labelName='First Name' />
+              <Input
+                type='text'
+                id='firstName'
+                name='firstName'
+                placeholder='Singh'
+                value={userDetails.firstName}
+                setUserDetails={setUserDetails}
+                userDetails={userDetails}
+              />
             </div>
 
             <div className='form-set'>
-              <Label labelFor='lname' labelName='Last Name' />
-              <Input type='text' id='lname' name='lname' placeholder='Singh' />
+              <Label labelFor='lastName' labelName='Last Name' />
+              <Input
+                type='text'
+                id='lastName'
+                name='lastName'
+                placeholder='Singh'
+                value={userDetails.lastName}
+                setUserDetails={setUserDetails}
+                userDetails={userDetails}
+              />
             </div>
 
             <div className='form-set'>
@@ -31,38 +80,75 @@ export function SignUpPage() {
                 id='email'
                 name='email'
                 placeholder='testSingh@gmail.com'
+                value={userDetails.email}
+                setUserDetails={setUserDetails}
+                userDetails={userDetails}
               />
             </div>
 
             <div className='form-set'>
               <Label labelFor='password' labelName='Password' />
               <Input
-                type='password'
+                type={showPassWord.password ? `text` : `password`}
                 id='password'
                 name='password'
                 placeholder='********'
+                value={userDetails.password}
+                setUserDetails={setUserDetails}
+                userDetails={userDetails}
               />
-              <span className='toggle-password'>
-                <BiEyeSlash />
+              <span
+                className='toggle-password'
+                onClick={() =>
+                  setShowPassword({
+                    ...showPassWord,
+                    password: !showPassWord.password,
+                  })
+                }
+              >
+                {showPassWord.password ? <BiEye /> : <BiEyeSlash />}
               </span>
             </div>
 
             <div className='form-set'>
               <Label labelFor='confirm-password' labelName='Confirm Password' />
               <Input
-                type='password'
+                type={showPassWord.confirmPassword ? `text` : `password`}
                 id='confirm-password'
-                name='password'
+                name='confirmPassword'
                 placeholder='Enter Pasword again'
+                value={userDetails.confirmPassword}
+                setUserDetails={setUserDetails}
+                userDetails={userDetails}
               />
-              <span className='toggle-password'>
-                <BiEye></BiEye>
+              <span
+                className='toggle-password'
+                onClick={() =>
+                  setShowPassword({
+                    ...showPassWord,
+                    confirmPassword: !showPassWord.confirmPassword,
+                  })
+                }
+              >
+                {showPassWord.confirmPassword ? <BiEye /> : <BiEyeSlash />}
                 <i className='fas fa-eye'></i>
               </span>
             </div>
 
             <div className='form-check md-vt-1 flex-row'>
-              <input type='checkbox' value='demo' id='terms-and-conditions' />
+              <input
+                type='checkbox'
+                value='demo'
+                name='termsAndCondition'
+                id='terms-and-conditions'
+                checked={userDetails.termsAndCondition}
+                onChange={(e) =>
+                  setUserDetails({
+                    ...userDetails,
+                    termsAndCondition: !userDetails.termsAndCondition,
+                  })
+                }
+              />
               <label
                 className='form-label-inline text-sm text-primary'
                 htmlFor='terms-and-conditions'
