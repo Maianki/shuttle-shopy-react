@@ -1,2 +1,2 @@
 export { productsReducer } from "./productsReducer";
-export { authReducer } from "./authReducer";
+export { authReducer, authInitialState } from "./authReducer";

@@ -12,7 +12,7 @@ import "./cart.css";
 export function Cart() {
   useDocumentTitle("Cart");
   return (
-    <div classNameName='cart-container'>
+    <div className='cart-container'>
       <Navbar />
       <main className='cart-main'>
         <section className='cart-product-details'>

@@ -1,19 +1,12 @@
 import axios from "axios";
 import { createContext, useContext, useReducer } from "react";
-import { authReducer } from "../reducers";
+import { authReducer, authInitialState } from "../reducers";
 
 const authContext = createContext(null);
 
-const authInitialState = {
-  isLoggedIn: false,
-  isTestLoggedIn: false,
-  userName: "",
-  userId: "",
-  cart: [],
-  wishlist: [],
-};
-
 const AuthProvider = ({ children }) => {
+  const [auth, authDispatcher] = useReducer(authReducer, authInitialState);
+
   const handleSignup = async (userInfo) => {
     const { firstName, lastName, email, password, confirmPassword } = userInfo;
     try {
@@ -25,7 +18,13 @@ const AuthProvider = ({ children }) => {
         confirmPassword,
       });
       // saving the encodedToken in the localStorage
+      console.log(response.data.createdUser._id);
+      const {
+        createdUser: { _id: userID },
+      } = response.data;
+
       localStorage.setItem("token", response.data.encodedToken);
+      authDispatcher({ type: "loggedIn", payload: userID });
     } catch (error) {
       console.log(error);
     }
@@ -40,13 +39,15 @@ const AuthProvider = ({ children }) => {
       });
       // saving the encodedToken in the localStorage
       localStorage.setItem("token", response.data.encodedToken);
+      const { foundUser } = response.data;
+      console.log("from Login--->", response.data.foundUser);
+      authDispatcher({ type: "loggedIn", payload: foundUser });
       console.log(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const [auth, authDispatcher] = useReducer(authReducer, authInitialState);
   return (
     <authContext.Provider
       value={{ auth, authDispatcher, handleSignup, handleSignIn }}

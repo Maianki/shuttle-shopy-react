@@ -12,6 +12,7 @@ import { useDocumentTitle, useAxios } from "../../hooks";
 import { CATEGORIES_API } from "../../constants/apiEndPoints";
 import { features } from "../../data/features-data";
 import { useProducts } from "../../context/products-context";
+import { useAuth } from "../../context/auth-context";
 
 function LandingPage() {
   useDocumentTitle("Home Page");
@@ -19,7 +20,9 @@ function LandingPage() {
     products: { productsList },
   } = useProducts();
 
+  const { auth } = useAuth();
   const { response: categories } = useAxios(CATEGORIES_API);
+  console.log(auth);
 
   return (
     <div>

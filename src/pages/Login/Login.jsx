@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Navbar, Footer, Input, Label } from "../../components";
 import { BiEye, BiEyeSlash } from "../../assets/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDocumentTitle } from "../../hooks";
 import { useAuth } from "../../context/auth-context";
 import "./login.css";
 
 export function Login() {
   const { handleSignIn } = useAuth();
+  const navigate = useNavigate();
 
   useDocumentTitle("Login");
   const [userDetails, setUserDetails] = useState({
@@ -22,6 +23,7 @@ export function Login() {
     e.preventDefault();
     console.log(userDetails);
     handleSignIn(userDetails);
+    navigate("/");
   };
 
   return (
@@ -47,7 +49,7 @@ export function Login() {
             <div className='form-set'>
               <Label labelFor='password' labelName='Password' />
               <Input
-                type='password'
+                type={showPassWord ? `text` : `password`}
                 id='password'
                 name='password'
                 placeholder='********'
@@ -64,10 +66,20 @@ export function Login() {
             </div>
 
             <div className='form-check md-vt-1 flex-row'>
-              <input type='checkbox' value='demo' id='remember-me' />
+              <input
+                type='checkbox'
+                value={userDetails.isRememberMe}
+                onChange={() =>
+                  setUserDetails({
+                    ...userDetails,
+                    isRememberMe: !userDetails.isRememberMe,
+                  })
+                }
+                id='remember-me'
+              />
               <label
                 className='form-label-inline text-sm text-primary'
-                for='remember-me'
+                htmlFor='remember-me'
               >
                 Remember Me
               </label>
