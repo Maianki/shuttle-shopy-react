@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useReducer } from "react";
 import { authReducer, authInitialState } from "../reducers";
+import { LOGIN_API, SIGNUP_API } from "../constants/apiEndPoints";
 
 const authContext = createContext(null);
 
@@ -10,7 +11,7 @@ const AuthProvider = ({ children }) => {
   const handleSignup = async (userInfo) => {
     const { firstName, lastName, email, password, confirmPassword } = userInfo;
     try {
-      const response = await axios.post("/api/auth/signup", {
+      const response = await axios.post(SIGNUP_API, {
         firstName,
         lastName,
         email,
@@ -18,13 +19,11 @@ const AuthProvider = ({ children }) => {
         confirmPassword,
       });
       // saving the encodedToken in the localStorage
-      console.log(response.data.createdUser._id);
-      const {
-        createdUser: { _id: userID },
-      } = response.data;
 
       localStorage.setItem("token", response.data.encodedToken);
-      authDispatcher({ type: "loggedIn", payload: userID });
+      const { createdUser } = response.data;
+
+      authDispatcher({ type: "loggedIn", payload: createdUser });
     } catch (error) {
       console.log(error);
     }
@@ -33,16 +32,15 @@ const AuthProvider = ({ children }) => {
   const handleSignIn = async (userInfo) => {
     const { email, password } = userInfo;
     try {
-      const response = await axios.post("/api/auth/login", {
+      const response = await axios.post(LOGIN_API, {
         email,
         password,
       });
       // saving the encodedToken in the localStorage
       localStorage.setItem("token", response.data.encodedToken);
+
       const { foundUser } = response.data;
-      console.log("from Login--->", response.data.foundUser);
       authDispatcher({ type: "loggedIn", payload: foundUser });
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }

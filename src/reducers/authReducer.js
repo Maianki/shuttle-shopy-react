@@ -1,6 +1,5 @@
 export const authInitialState = {
   isLoggedIn: false,
-  isTestLoggedIn: false,
   user: "",
   userId: "",
   cart: [],
@@ -15,7 +14,7 @@ export const authReducer = (state, action) => {
         ...state,
         userId: userId,
         user: `${firstName} ${lastName}`,
-        isLoggedIn: !state.isLoggedIn,
+        isLoggedIn: true,
       };
 
     case "loggedOut":

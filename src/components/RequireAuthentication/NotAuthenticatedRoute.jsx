@@ -1,8 +1,8 @@
 import React from "react";
-import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 
-export function RestrictAuth() {
+export function NotAuthenticatedRoute() {
   const location = useLocation();
   console.log(location);
   const {

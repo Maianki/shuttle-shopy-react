@@ -1,29 +1,35 @@
 import React, { useState } from "react";
 import { Navbar, Footer, Input, Label } from "../../components";
 import { BiEye, BiEyeSlash } from "../../assets/icons";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDocumentTitle } from "../../hooks";
 import { useAuth } from "../../context/auth-context";
 import "./login.css";
 
 export function Login() {
   const { handleSignIn } = useAuth();
-  const navigate = useNavigate();
+
+  const navigate = useNavigate;
 
   useDocumentTitle("Login");
   const [userDetails, setUserDetails] = useState({
     email: "",
     password: "",
-    isRememberMe: false,
+    isRememberMe: true,
   });
 
   const [showPassWord, setShowPassword] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(userDetails);
     handleSignIn(userDetails);
-    navigate("/");
+    navigate("/", { replace: true });
+  };
+
+  const guesLoginHandler = (e) => {
+    e.preventDefault();
+    handleSignIn({ email: "johndoe@gmail.com", password: "johnDoe123" });
+    navigate("/", { replace: true });
   };
 
   return (
@@ -98,7 +104,10 @@ export function Login() {
                 className='btn btn-primary form-btn text-center'
                 value='sign in'
               />
-              <button className='btn btn-secondary form-btn text-center'>
+              <button
+                onClick={guesLoginHandler}
+                className='btn btn-secondary form-btn text-center'
+              >
                 Guest login
               </button>
               <p className='text-sm text-center text-bold-500 text-primary form-link-text'>

@@ -9,4 +9,7 @@ export { OrderSummaryCard } from "./Card/OrderSummaryCard";
 export { ProductsFilter } from "./ProductsFilter";
 export { Input } from "./Form";
 export { Label } from "./Form";
-export { RequireAuth, RestrictAuth } from "./RequireAuthentication";
+export {
+  AuthenticatedRoute,
+  NotAuthenticatedRoute,
+} from "./RequireAuthentication";

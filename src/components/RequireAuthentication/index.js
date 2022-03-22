@@ -1,2 +1,2 @@
-export { RequireAuth } from "./RequireAuth";
-export { RestrictAuth } from "./RestrictAuth";
+export { AuthenticatedRoute } from "./AuthenticatedRoute";
+export { NotAuthenticatedRoute } from "./NotAuthenticatedRoute";

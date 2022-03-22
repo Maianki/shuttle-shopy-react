@@ -1,12 +1,14 @@
 import React from 'react'
-import logo from "../../assets/images/shuttle-shopy-logo.png"
-import wishlistIcon from "../../assets/images/heart.png"
-import loginIcon from "../../assets/images/user.png"
-import cartIcon from "../../assets/images/shopping-bag.png"
+import {
+  logo,
+  wishlistIcon,
+  loginIcon,
+  cartIcon,
+  profileIcon,
+} from "../../assets/images";
 import { useAuth } from "../../context/auth-context";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-import { FaRegularUserCircle } from "../../assets/icons";
 
 function Navbar() {
   const {
@@ -63,7 +65,11 @@ function Navbar() {
         <li className='list-inline'>
           {isLoggedIn ? (
             <Link className='flex-column menu-link' to='/profile'>
-              <FaRegularUserCircle />
+              <img
+                className='navbar-link'
+                src={profileIcon}
+                alt='profile icon'
+              />
             </Link>
           ) : (
             <Link className='flex-column menu-link' to='/login'>

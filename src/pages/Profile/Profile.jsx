@@ -15,8 +15,8 @@ export function Profile() {
       <Navbar />
       <main className='cart-main'>
         <div className='card'>
-          <p>Welcome, {user}</p>
-          <p className='text-bold-500'>Start Shopping</p>
+          <p className='md-ht-1'>Welcome, {user}</p>
+          <p className='text-bold-500 md-ht-1'>Start Shopping</p>
           <Link to='/shop-now'>
             <button className='btn btn-primary'>Shop Now</button>
           </Link>
