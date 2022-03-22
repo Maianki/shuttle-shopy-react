@@ -23,13 +23,11 @@ export function Login() {
   const submitHandler = (e) => {
     e.preventDefault();
     handleSignIn(userDetails);
-    navigate("/", { replace: true });
   };
 
-  const guesLoginHandler = (e) => {
+  const guestLoginHandler = (e) => {
     e.preventDefault();
     handleSignIn({ email: "johndoe@gmail.com", password: "johnDoe123" });
-    navigate("/", { replace: true });
   };
 
   return (
@@ -105,7 +103,7 @@ export function Login() {
                 value='sign in'
               />
               <button
-                onClick={guesLoginHandler}
+                onClick={guestLoginHandler}
                 className='btn btn-secondary form-btn text-center'
               >
                 Guest login
