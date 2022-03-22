@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { Navbar, Footer, Input, Label } from "../../components";
 import { BiEye, BiEyeSlash } from "../../assets/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDocumentTitle } from "../../hooks";
 import { useAuth } from "../../context/auth-context";
 import "./login.css";
 
 export function Login() {
   const { handleSignIn } = useAuth();
-
-  const navigate = useNavigate;
 
   useDocumentTitle("Login");
   const [userDetails, setUserDetails] = useState({
