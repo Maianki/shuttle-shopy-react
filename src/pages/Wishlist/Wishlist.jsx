@@ -1,17 +1,29 @@
 import React from "react";
-import { Navbar, Footer } from "../../components";
+import { Navbar, Footer, ProductCard } from "../../components";
+import { useCartWishlist } from "../../context";
 import { useDocumentTitle } from "../../hooks";
+
 import("./wishlist.css");
 
 export function Wishlist() {
   useDocumentTitle("Wishlist");
+
+  const {
+    cartWishlist: { wishlist },
+  } = useCartWishlist();
   return (
     <div className='wishlist-container'>
       <Navbar />
       <main className='wishlist-main'>
         <h1 className='text-center wishlist-heading'>My Wishlist</h1>
-        <p className='md-ht-1 text-center'>You have 6 items in your wishlist</p>
-        <section className='wishlist-products'></section>
+        <p className='md-ht-1 text-center'>
+          You have {wishlist.length} items in your wishlist
+        </p>
+        <section className='wishlist-products'>
+          {wishlist.map((product) => {
+            return <ProductCard product={product} />;
+          })}
+        </section>
       </main>
       <Footer />
     </div>

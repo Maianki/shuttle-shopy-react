@@ -6,11 +6,15 @@ import {
   cartIcon,
   profileIcon,
 } from "../../assets/images";
-import { useAuth } from "../../context/auth-context";
+import { useAuth, useCartWishlist } from "../../context";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const {
+    cartWishlist: { cart, wishlist },
+  } = useCartWishlist();
+
   const {
     auth: { isLoggedIn },
   } = useAuth();
@@ -43,22 +47,36 @@ function Navbar() {
         <li className='list-inline'>
           <Link className='flex-column menu-link' to='/wishlist'>
             {/* -- wishlist  -- */}
-            <img
-              className='navbar-link'
-              src={wishlistIcon}
-              alt='wishlist icon'
-            />
+            <div class='badge-container'>
+              <img
+                className='navbar-link'
+                src={wishlistIcon}
+                alt='wishlist icon'
+              />
+              {wishlist.length > 0 && (
+                <span class='badge badge-icon badge-navlink'>
+                  {wishlist.length}
+                </span>
+              )}
+            </div>
           </Link>
         </li>
 
         <li className='list-inline'>
           <Link className='flex-column menu-link' to='/cart'>
             {/* -- cart -- */}
-            <img
-              className='navbar-link'
-              src={cartIcon}
-              alt='add to cart icon'
-            />
+            <div class='badge-container'>
+              <img
+                className='navbar-link'
+                src={cartIcon}
+                alt='add to cart icon'
+              />
+              {cart.length > 0 && (
+                <span class='badge badge-icon badge-navlink'>
+                  {cart.length}
+                </span>
+              )}
+            </div>
           </Link>
         </li>
 

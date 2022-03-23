@@ -1,18 +1,52 @@
 import React from "react";
 import { BiHeartFill, BiTrashFill } from "../../../assets/icons";
+import axios from "axios";
+import { useAuth, useCartWishlist } from "../../../context";
+import { isInWishlist } from "../../../utils/cart-and-wishlist-functions";
 import "./cart-product-card.css";
 
 export function CartProductCard({
-  badge,
-  img,
-  isBtnSaveToWishlist = false,
-  originalPrice,
-  name,
-  discountedPrice,
-  discountPercent,
-  icon,
-  ...rest
+  product,
+  product: {
+    _id,
+    badge,
+    img,
+    name,
+    qty,
+    price: {
+      original: originalPrice,
+      discounted: discountedPrice,
+      discount: discountPercent,
+    },
+  },
 }) {
+  const {
+    auth: { encodedToken },
+  } = useAuth();
+
+  const {
+    cartWishlistDispatcher,
+    manageWishlist,
+    cartWishlist: { wishlist },
+  } = useCartWishlist();
+
+  const handleRemoveFromCart = async (productid) => {
+    try {
+      const response = await axios.delete(`/api/user/cart/${productid}`, {
+        headers: { authorization: encodedToken },
+      });
+      console.log("from delete handler", response);
+      const { cart } = response.data;
+      cartWishlistDispatcher({ type: "UPDATE_CART", payload: cart });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleWishlist = () => {
+    manageWishlist(product);
+  };
+
   return (
     <div className='card align-items-center card-horizontal'>
       <div className='card-header'>
@@ -31,16 +65,26 @@ export function CartProductCard({
         <div className='card-horizontal-footer'>
           <div className='flex-row btn-quantity'>
             <button className='btn-quantity-plus'>+</button>
-            <input type='number' className='btn-quantity-input' value='1' />
+            <input type='number' className='btn-quantity-input' value={qty} />
             <button className='btn-quantity-minus'>-</button>
-            <button className='btn btn-outline-primary'>
+            <button
+              className='btn btn-outline-primary'
+              onClick={() => handleRemoveFromCart(_id)}
+            >
               <BiTrashFill />
             </button>
           </div>
 
-          <button className='card-horizontal-btn btn btn-primary'>
+          <button
+            className='card-horizontal-btn btn btn-primary'
+            onClick={handleWishlist}
+          >
             <BiHeartFill />
-            <span className='md-ht-1'>SAVE TO WISHLIST</span>
+            <span className='md-ht-1'>
+              {isInWishlist(wishlist, product._id)
+                ? `WISHLISTED`
+                : `SAVE TO WISHLIST`}
+            </span>
           </button>
         </div>
       </div>
