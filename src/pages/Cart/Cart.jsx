@@ -5,7 +5,7 @@ import {
   CartProductCard,
   OrderSummaryCard,
 } from "../../components";
-import { useCartWishlist, useAuth } from "../../context";
+import { useCartWishlist } from "../../context";
 import { useDocumentTitle } from "../../hooks";
 import "./cart.css";
 
@@ -15,12 +15,6 @@ export function Cart() {
   const {
     cartWishlist: { cart },
   } = useCartWishlist();
-  // const {
-  //   auth: { encodedToken },
-  // } = useAuth();
-
-  // const { response: cart } = useAxios("/api/user/cart", encodedToken);
-  // console.log("This is custom hook response ", cart);
 
   return (
     <div className='cart-container'>

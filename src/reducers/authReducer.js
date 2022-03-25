@@ -9,7 +9,7 @@ export const authReducer = (state, action) => {
   switch (action.type) {
     case "loggedIn":
       const {
-        user: { firstName, lastName, _id: userId },
+        user: { firstName, lastName, _id: userId = "" },
         encodedToken,
       } = action.payload;
 
