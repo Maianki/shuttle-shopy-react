@@ -56,7 +56,7 @@ const CartWishlistProvider = ({ children }) => {
 
       if (response.status === 200) {
         const { cart } = response.data;
-        console.log("Updated cart", cart);
+
         cartWishlistDispatcher({ type: "UPDATE_CART", payload: cart });
       }
     } catch (err) {
@@ -69,7 +69,7 @@ const CartWishlistProvider = ({ children }) => {
       const response = await axios.delete(`/api/user/cart/${productid}`, {
         headers: { authorization: encodedToken },
       });
-      console.log("from delete handler", response);
+
       const { cart } = response.data;
       cartWishlistDispatcher({ type: "UPDATE_CART", payload: cart });
     } catch (err) {
