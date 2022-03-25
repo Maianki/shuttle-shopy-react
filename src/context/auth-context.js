@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { authReducer, authInitialState } from "../reducers";
 import { LOGIN_API, SIGNUP_API } from "../constants/apiEndPoints";
 
@@ -7,17 +7,6 @@ const authContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [auth, authDispatcher] = useReducer(authReducer, authInitialState);
-
-  useEffect(() => {
-    const firstName = localStorage.getItem("firstName");
-    const lastName = localStorage.getItem("lastName");
-    const encodedToken = localStorage.getItem("token");
-
-    authDispatcher({
-      type: "loggedIn",
-      payload: { user: { firstName, lastName }, encodedToken },
-    });
-  }, [authDispatcher]);
 
   const handleSignup = async (userInfo) => {
     const { firstName, lastName, email, password, confirmPassword } = userInfo;
@@ -34,8 +23,6 @@ const AuthProvider = ({ children }) => {
 
       // saving the encodedToken in the localStorage
       localStorage.setItem("token", encodedToken);
-      localStorage.setItem("firstName", user.firstName);
-      localStorage.setItem("lastName", user.lastName);
 
       authDispatcher({
         type: "loggedIn",
