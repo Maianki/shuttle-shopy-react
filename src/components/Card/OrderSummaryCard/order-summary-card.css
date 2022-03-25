@@ -18,6 +18,10 @@
     border-bottom:1px solid var(--GRAY-COLOR);
 }
 
+.order-summary-htext{
+    color:var(--ROSE-RED-COLOR)
+}
+
 .order-item-text{
     font-size: 1.4rem;
 }

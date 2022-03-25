@@ -1,7 +1,6 @@
 import React from "react";
 import { BiHeartFill, BiTrashFill } from "../../../assets/icons";
-import axios from "axios";
-import { useAuth, useCartWishlist } from "../../../context";
+import { useCartWishlist } from "../../../context";
 import { isInWishlist } from "../../../utils/cart-and-wishlist-functions";
 import "./cart-product-card.css";
 
@@ -9,9 +8,8 @@ export function CartProductCard({
   product,
   product: {
     _id,
-    badge,
     img,
-    name,
+    name: productName,
     qty,
     price: {
       original: originalPrice,
@@ -21,54 +19,61 @@ export function CartProductCard({
   },
 }) {
   const {
-    auth: { encodedToken },
-  } = useAuth();
-
-  const {
-    cartWishlistDispatcher,
+    manageDeleteItemIncart,
     manageWishlist,
+    manipulateProductQtyIncart,
     cartWishlist: { wishlist },
   } = useCartWishlist();
 
-  const handleRemoveFromCart = async (productid) => {
-    try {
-      const response = await axios.delete(`/api/user/cart/${productid}`, {
-        headers: { authorization: encodedToken },
-      });
-      console.log("from delete handler", response);
-      const { cart } = response.data;
-      cartWishlistDispatcher({ type: "UPDATE_CART", payload: cart });
-    } catch (err) {
-      console.log(err);
-    }
+  const handleRemoveFromCart = (productid) => {
+    manageDeleteItemIncart(productid);
   };
 
   const handleWishlist = () => {
     manageWishlist(product);
   };
 
+  const handleQty = (productId, operation) => {
+    manipulateProductQtyIncart(productId, operation);
+  };
+
   return (
     <div className='card align-items-center card-horizontal'>
       <div className='card-header'>
-        <img className='card-img card-horizontal-img' src={img} alt={name} />
-        <span className='card-badge badge'>{badge}</span>
+        <img
+          className='card-img card-horizontal-img'
+          src={img}
+          alt={productName}
+        />
       </div>
       <div className='md-ht-1 card-body'>
-        <h3>{name}</h3>
+        <h3>{productName}</h3>
         <p className='md-ht-1'>
-          {discountedPrice}
+          Rs. {discountedPrice}
           <span className='card-discount'>
-            <span className='original-price md-ht-1'>{originalPrice} </span>(
-            {discountPercent}% OFF)
+            <span className='original-price md-ht-1'>Rs. {originalPrice} </span>
+            ({discountPercent}% OFF)
           </span>
         </p>
         <div className='card-horizontal-footer'>
           <div className='flex-row btn-quantity'>
-            <button className='btn-quantity-plus'>+</button>
-            <input type='number' className='btn-quantity-input' value={qty} />
-            <button className='btn-quantity-minus'>-</button>
             <button
-              className='btn btn-outline-primary'
+              className='btn-quantity-plus'
+              onClick={() => handleQty(_id, "increment")}
+            >
+              +
+            </button>
+
+            <div className='quantity-display'>{qty}</div>
+            <button
+              className='btn-quantity-minus'
+              onClick={() => handleQty(_id, "decrement")}
+              disabled={qty <= 1}
+            >
+              -
+            </button>
+            <button
+              className='btn btn-outline-primary btn-remove-product'
               onClick={() => handleRemoveFromCart(_id)}
             >
               <BiTrashFill />

@@ -21,7 +21,11 @@ export function Wishlist() {
         </p>
         <section className='wishlist-products'>
           {wishlist.map((product) => {
-            return <ProductCard product={product} />;
+            return (
+              <div key={product._id}>
+                <ProductCard product={product} />
+              </div>
+            );
           })}
         </section>
       </main>

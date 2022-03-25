@@ -1,12 +1,10 @@
-import axios from "axios";
 import React from "react";
 import { BiHeart, BiHeartFill, FaSolidStar } from "../../../assets/icons";
-import { useAuth, useCartWishlist } from "../../../context";
+import { useCartWishlist } from "../../../context";
 import {
   isInCart,
   isInWishlist,
 } from "../../../utils/cart-and-wishlist-functions";
-import { useNavigate } from "react-router-dom";
 
 function ProductCard({
   product,
@@ -24,36 +22,14 @@ function ProductCard({
     rating,
   },
 }) {
-  const navigate = useNavigate();
   const {
-    auth: { encodedToken },
-  } = useAuth();
-
-  const {
-    cartWishlistDispatcher,
     manageWishlist,
+    manageCart,
     cartWishlist: { cart, wishlist },
   } = useCartWishlist();
 
-  const cartHandler = async (product) => {
-    console.log("from handler", cart);
-
-    if (cart.length > 0 && isInCart(cart, product._id)) {
-      navigate("/cart");
-    } else {
-      const response = await axios.post(
-        "/api/user/cart",
-        {
-          product,
-        },
-        {
-          headers: { authorization: encodedToken },
-        }
-      );
-
-      const { cart: cartProducts } = response.data;
-      cartWishlistDispatcher({ type: "UPDATE_CART", payload: cartProducts });
-    }
+  const cartHandler = () => {
+    manageCart(product);
   };
 
   const handleWishlist = () => {

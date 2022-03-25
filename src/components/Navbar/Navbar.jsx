@@ -47,14 +47,14 @@ function Navbar() {
         <li className='list-inline'>
           <Link className='flex-column menu-link' to='/wishlist'>
             {/* -- wishlist  -- */}
-            <div class='badge-container'>
+            <div className='badge-container'>
               <img
                 className='navbar-link'
                 src={wishlistIcon}
                 alt='wishlist icon'
               />
-              {wishlist.length > 0 && (
-                <span class='badge badge-icon badge-navlink'>
+              {isLoggedIn && wishlist.length > 0 && (
+                <span className='badge badge-icon badge-navlink'>
                   {wishlist.length}
                 </span>
               )}
@@ -65,14 +65,14 @@ function Navbar() {
         <li className='list-inline'>
           <Link className='flex-column menu-link' to='/cart'>
             {/* -- cart -- */}
-            <div class='badge-container'>
+            <div className='badge-container'>
               <img
                 className='navbar-link'
                 src={cartIcon}
                 alt='add to cart icon'
               />
-              {cart.length > 0 && (
-                <span class='badge badge-icon badge-navlink'>
+              {isLoggedIn && cart.length > 0 && (
+                <span className='badge badge-icon badge-navlink'>
                   {cart.length}
                 </span>
               )}

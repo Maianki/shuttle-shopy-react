@@ -15,3 +15,17 @@
 .card-btn{
     margin-top: 1rem;
 }
+
+.btn-remove-product{
+    cursor: pointer;
+}
+
+.btn-remove-product:hover{
+    box-shadow: none;
+}
+
+.btn-remove-product:active{
+    box-shadow: none;
+    color:var(--ROSE-RED-COLOR);
+    border-color: var(--ROSE-RED-COLOR);
+}
