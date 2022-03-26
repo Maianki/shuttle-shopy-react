@@ -1,11 +1,17 @@
-import React from 'react'
-import { BiHeart, BiXCircle, FaSolidStar } from "../../../assets/icons";
+import React from "react";
+import { BiHeart, BiHeartFill, FaSolidStar } from "../../../assets/icons";
+import { useCartWishlist } from "../../../context";
+import {
+  isInCart,
+  isInWishlist,
+} from "../../../utils/cart-and-wishlist-functions";
 
 function ProductCard({
+  product,
   product: {
+    _id,
     badge,
     img,
-    isDismissBtn = false,
     description,
     price: {
       original: originalPrice,
@@ -16,19 +22,40 @@ function ProductCard({
     rating,
   },
 }) {
+  const {
+    manageWishlist,
+    manageCart,
+    cartWishlist: { cart, wishlist },
+  } = useCartWishlist();
+
+  const cartHandler = () => {
+    manageCart(product);
+  };
+
+  const handleWishlist = () => {
+    manageWishlist(product);
+  };
+
   return (
     <div className='card align-items-center'>
       <div className='card-header'>
         <img className='card-img' src={img} alt={name} />
         <span className='card-badge badge'>{badge}</span>
-        {isDismissBtn && (
-          <span className='card-dismiss'>
-            <BiXCircle />
+        {isInWishlist(wishlist, _id) ? (
+          <span
+            className='card-dismiss btn-wishlist-fill'
+            onClick={() => handleWishlist(product)}
+          >
+            <BiHeartFill />
+          </span>
+        ) : (
+          <span
+            className='card-dismiss btn-wishlist'
+            onClick={() => handleWishlist(product)}
+          >
+            <BiHeart />
           </span>
         )}
-        <span className='card-dismiss btn-wishlist'>
-          <BiHeart />
-        </span>
       </div>
       <div className='card-body'>
         <h3>{name}</h3>
@@ -45,13 +72,22 @@ function ProductCard({
         </p>
       </div>
       <div className='card-footer'>
-        <button className='card-btn btn btn-primary'>
+        <button
+          className={
+            isInCart(cart, product._id)
+              ? `card-btn btn btn-secondary`
+              : `card-btn btn btn-primary`
+          }
+          onClick={() => cartHandler(product)}
+        >
           <i className='fas fa-cart-plus'></i>
-          <span className='md-ht-1'>ADD TO CART</span>
+          <span className='md-ht-1'>
+            {isInCart(cart, product._id) ? `GO TO CART` : `ADD TO CART`}
+          </span>
         </button>
       </div>
     </div>
   );
 }
 
-export {ProductCard}
+export { ProductCard };

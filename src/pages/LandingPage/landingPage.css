@@ -24,10 +24,4 @@
     font-size: 3em;
 }
 
-.btn-wishlist{
-    background-color: var(--WHITE-COLOR);
-    color:var(--PRIMARY-COlOR);
-    width:4rem;
-    height:4rem;
-    border-radius: 50%;
-}
+

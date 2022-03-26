@@ -18,12 +18,16 @@ const AuthProvider = ({ children }) => {
         password,
         confirmPassword,
       });
+
+      const { createdUser: user, encodedToken } = response.data;
+
       // saving the encodedToken in the localStorage
+      localStorage.setItem("token", encodedToken);
 
-      localStorage.setItem("token", response.data.encodedToken);
-      const { createdUser } = response.data;
-
-      authDispatcher({ type: "loggedIn", payload: createdUser });
+      authDispatcher({
+        type: "loggedIn",
+        payload: { user, encodedToken },
+      });
     } catch (error) {
       console.log(error);
     }
@@ -36,11 +40,15 @@ const AuthProvider = ({ children }) => {
         email,
         password,
       });
-      // saving the encodedToken in the localStorage
-      localStorage.setItem("token", response.data.encodedToken);
+      const { foundUser: user, encodedToken } = response.data;
 
-      const { foundUser } = response.data;
-      authDispatcher({ type: "loggedIn", payload: foundUser });
+      // saving the encodedToken in the localStorage
+      localStorage.setItem("token", encodedToken);
+
+      authDispatcher({
+        type: "loggedIn",
+        payload: { user, encodedToken },
+      });
     } catch (error) {
       console.log(error);
     }

@@ -40,3 +40,12 @@
     transform: scale(1.1);
     color: var(--WHITE-COLOR);
 }
+
+.badge-navlink{
+    top:-8px;
+    right:-10px;
+    font-size: 8px;
+    width: 2.2rem;
+    height: 2.2rem;
+    background-color: var(--ROSE-RED-COLOR);
+}

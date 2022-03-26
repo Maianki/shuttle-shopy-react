@@ -47,6 +47,30 @@
   max-height: 27rem;
 }
 
+.btn-wishlist{
+  background-color: var(--WHITE-COLOR);
+  color:var(--PRIMARY-COlOR);
+  width:4rem;
+  height:4rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btn-wishlist-fill{
+  background-color: var(--WHITE-COLOR);
+  color: var(--ROSE-RED-COLOR);
+  width:4rem;
+  height:4rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btn-wishlist:hover,
+.btn-wishlist-fill:hover{
+  transform: scale(1);
+  color: var(--ROSE-RED-COLOR);
+}
+
 .product-rating {
   padding: 5px 10px;
   margin-left: 1.5rem;

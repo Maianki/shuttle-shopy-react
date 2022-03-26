@@ -6,6 +6,13 @@ import {
   getFilteredByPriceSort,
 } from "../utils/products-filter-functions";
 
+/**
+ * custom hook to filterData based on filter appplied by user
+ * 
+ * @returns filtered data based on filter applied by user
+ *
+ */
+
 export function useFilteredData() {
   const { products } = useProducts();
   const {

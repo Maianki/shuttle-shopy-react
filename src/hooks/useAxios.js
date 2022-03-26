@@ -9,17 +9,24 @@ import axios from "axios";
  *
  */
 
-export const useAxios = (url) => {
+export const useAxios = (url, encodedToken = "") => {
   const [response, setResponse] = useState([]);
   useEffect(() => {
     (async () => {
       try {
-        let res = await axios(url);
+        let res;
+        if (encodedToken) {
+          res = await axios.get(url, {
+            headers: { authorization: encodedToken },
+          });
+        } else {
+          res = await axios(url);
+        }
         setResponse(res.data[url.split("/").slice(-1)]);
       } catch (err) {
         console.log(err);
       }
     })();
-  }, [url]);
+  }, [url, encodedToken]);
   return { response };
 };
