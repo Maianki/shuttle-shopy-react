@@ -58,20 +58,21 @@ export function CartProductCard({
         <div className='card-horizontal-footer'>
           <div className='flex-row btn-quantity'>
             <button
-              className='btn-quantity-plus'
-              onClick={() => handleQty(_id, "increment")}
-            >
-              +
-            </button>
-
-            <div className='quantity-display'>{qty}</div>
-            <button
               className='btn-quantity-minus'
               onClick={() => handleQty(_id, "decrement")}
               disabled={qty <= 1}
             >
               -
             </button>
+
+            <div className='quantity-display'>{qty}</div>
+            <button
+              className='btn-quantity-plus'
+              onClick={() => handleQty(_id, "increment")}
+            >
+              +
+            </button>
+
             <button
               className='btn btn-outline-primary btn-remove-product'
               onClick={() => handleRemoveFromCart(_id)}

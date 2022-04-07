@@ -15,7 +15,7 @@ export function SortByPriceFilter() {
           id='price-low-to-high'
           value='low-to-high'
           onChange={() =>
-            productsDispatcher({ type: "sortByPrice", payload: "lowToHigh" })
+            productsDispatcher({ type: "SORT_BY_PRICE", payload: "lowToHigh" })
           }
           checked={products.sortByPrice === "lowToHigh"}
         />
@@ -32,7 +32,7 @@ export function SortByPriceFilter() {
           id='price-high-to-low'
           value='high-to-low'
           onChange={() =>
-            productsDispatcher({ type: "sortByPrice", payload: "highToLow" })
+            productsDispatcher({ type: "SORT_BY_PRICE", payload: "highToLow" })
           }
           checked={products.sortByPrice === "highToLow"}
         />

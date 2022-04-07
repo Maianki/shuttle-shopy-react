@@ -21,7 +21,7 @@ export function CategoriesFilter() {
               checked={products.filterByCategory.includes(categoryName)}
               onChange={() =>
                 productsDispatcher({
-                  type: "filterByCategory",
+                  type: "FILTER_BY_CATEGORY",
                   payload: categoryName,
                 })
               }

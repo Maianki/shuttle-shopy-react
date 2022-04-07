@@ -11,7 +11,7 @@ export function FilterHeader() {
         className='btn btn-primary'
         onClick={() =>
           productsDispatcher({
-            type: "clearAll",
+            type: "CLEAR_ALL",
             payload: {
               ...initialState,
             },
