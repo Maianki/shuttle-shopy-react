@@ -37,7 +37,6 @@ export function SignUpPage() {
       termsAndCondition: "",
     });
 
-    console.log("From signUpHandler", userDetails);
   };
 
   return (
