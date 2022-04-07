@@ -41,11 +41,11 @@ export const productsReducer = (state, action) => {
       return { ...payload, productsList: productsList };
 
     case "SET_CATEGORY_FROM_HOME":
-      const { initialState, categoryName } = payload;
+
       return {
-        ...initialState,
+        ...productsAndFilterInitialState,
         productsList: productsList,
-        filterByCategory: [categoryName],
+        filterByCategory: payload,
       };
 
     default:

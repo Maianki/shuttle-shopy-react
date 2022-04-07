@@ -4,8 +4,8 @@ import { useAuth } from "../../context/auth-context";
 
 export function AuthenticatedRoute() {
   const {
-    auth: { isLoggedIn },
+    auth: { encodedToken },
   } = useAuth();
 
-  return isLoggedIn ? <Outlet /> : <Navigate to='/login'></Navigate>;
+  return encodedToken ? <Outlet /> : <Navigate to='/login' replace></Navigate>;
 }

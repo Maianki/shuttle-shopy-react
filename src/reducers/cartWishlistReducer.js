@@ -13,6 +13,6 @@ export const cartWishlistReducer = (state, action) => {
     case "UPDATE_WISHLIST":
       return { ...state, wishlist: action.payload };
     default:
-      return state;
+      throw Error("Unknown action.");
   }
 };

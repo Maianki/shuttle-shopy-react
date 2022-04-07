@@ -19,16 +19,15 @@ const AuthProvider = ({ children }) => {
         confirmPassword,
       });
 
-      const { createdUser: user, encodedToken } = response.data;
+      const { encodedToken } = response.data;
 
       if (response.status === 201) {
-        // saving the encodedToken and user in the localStorage
+        // saving the encodedToken in the localStorage
         localStorage.setItem("token", JSON.stringify(encodedToken));
-        localStorage.setItem("user", JSON.stringify(user));
 
         authDispatcher({
           type: "LOGGED_IN",
-          payload: { user, encodedToken },
+          payload:encodedToken,
         });
       }
     } catch (error) {
@@ -38,11 +37,10 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const encodedToken = JSON.parse(localStorage.getItem("token"));
-    const user = JSON.parse(localStorage.getItem("user"));
 
     authDispatcher({
       type: "LOGGED_IN",
-      payload: { user, encodedToken },
+      payload: encodedToken,
     });
   }, []);
 
@@ -53,16 +51,15 @@ const AuthProvider = ({ children }) => {
         email,
         password,
       });
-      const { foundUser: user, encodedToken } = response.data;
+      const { encodedToken } = response.data;
 
       if (response.status === 200) {
         // saving the encodedToken in the localStorage
         localStorage.setItem("token", JSON.stringify(encodedToken));
-        localStorage.setItem("user", JSON.stringify(user));
 
         authDispatcher({
           type: "LOGGED_IN",
-          payload: { user, encodedToken },
+          payload:  encodedToken ,
         });
       }
     } catch (error) {
@@ -77,7 +74,7 @@ const AuthProvider = ({ children }) => {
       {children}
     </authContext.Provider>
   );
-};
+};;
 
 const useAuth = () => useContext(authContext);
 
