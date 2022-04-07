@@ -1,10 +1,19 @@
+export const productsAndFilterInitialState = {
+  productsList: [],
+  sortByPrice: "none",
+  filterByCategory: [],
+  filterByRating: [],
+  filterByPriceRange: 0,
+  isOutOFStock: true,
+};
+
 export const productsReducer = (state, action) => {
   const { payload, type } = action;
   const { productsList } = state;
   switch (type) {
-    case "initialize":
+    case "INITIALISE_PRODUCTLIST":
       return { ...state, productsList: payload };
-    case "filterByCategory":
+    case "FILTER_BY_CATEGORY":
       return {
         ...state,
         filterByCategory: state.filterByCategory.includes(payload)
@@ -14,10 +23,10 @@ export const productsReducer = (state, action) => {
           : [...state.filterByCategory, payload],
       };
 
-    case "sortByPrice":
+    case "SORT_BY_PRICE":
       return { ...state, sortByPrice: payload };
 
-    case "filterByRating":
+    case "FILTER_BY_RATING":
       return {
         ...state,
         filterByRating: state.filterByRating.includes(payload)
@@ -25,21 +34,21 @@ export const productsReducer = (state, action) => {
           : [...state.filterByRating, payload],
       };
 
-    case "filterByPriceRange":
+    case "FILTER_BY_PRICE_RANGE":
       return { ...state, filterByPriceRange: payload };
 
-    case "clearAll":
+    case "CLEAR_ALL":
       return { ...payload, productsList: productsList };
 
-    case "setCategoryFromHome":
-      const { initialState, categoryName } = payload;
+    case "SET_CATEGORY_FROM_HOME":
+
       return {
-        ...initialState,
+        ...productsAndFilterInitialState,
         productsList: productsList,
-        filterByCategory: [categoryName],
+        filterByCategory: payload,
       };
 
     default:
-      return state;
+      throw Error("Unknown action.");
   }
 };

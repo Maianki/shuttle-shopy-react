@@ -5,6 +5,7 @@ import { useDocumentTitle } from "../../hooks";
 import "./sign-up-page.css";
 import { BiEye, BiEyeSlash } from "../../assets/icons";
 import { useAuth } from "../../context/auth-context";
+import { useSnackbar } from "../../context";
 
 export function SignUpPage() {
   useDocumentTitle("Signup");
@@ -16,8 +17,10 @@ export function SignUpPage() {
     email: "",
     password: "",
     confirmPassword: "",
-    termsAndCondition: false,
+    termsAndCondition: true,
   });
+
+  const { addSnackbar } = useSnackbar();
 
   const [showPassWord, setShowPassword] = useState({
     password: false,
@@ -26,18 +29,24 @@ export function SignUpPage() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    handleSignup(userDetails);
 
-    setUserDetails({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      termsAndCondition: "",
-    });
+    if (userDetails.password === userDetails.confirmPassword) {
+      handleSignup(userDetails);
 
-    console.log("From signUpHandler", userDetails);
+      setUserDetails({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        termsAndCondition: "",
+      });
+    } else {
+      addSnackbar(
+        "Password and confirm password doesn't match",
+        "snackbar-danger"
+      );
+    }
   };
 
   return (

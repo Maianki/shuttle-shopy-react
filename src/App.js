@@ -24,10 +24,11 @@ function App() {
           <Route path='/login' element={<Login />}></Route>
           <Route path='/signup' element={<SignUpPage />}></Route>
         </Route>
-        <Route path='/profile' element={<Profile />}></Route>
+
         <Route element={<AuthenticatedRoute />}>
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/wishlist' element={<Wishlist />}></Route>
+          <Route path='/profile' element={<Profile />}></Route>
         </Route>
         <Route path='/mockman' element={<Mockman />}></Route>
         <Route path='*' element={<PageNotFound />}></Route>

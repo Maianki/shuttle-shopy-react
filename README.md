@@ -1,70 +1,148 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+<img src="public/logo-solid.png" width="200" height="200" alt="shuttle shopy logo">
 
-## Available Scripts
+# Shuttle Shopy
 
-In the project directory, you can run:
+[![GitHub forks](https://img.shields.io/github/forks/Maianki/shuttle-shopy-react)](https://github.com/Maianki/shuttle-shopy-react/network)
+[![GitHub stars](https://img.shields.io/github/stars/Maianki/shuttle-shopy-react)](https://github.com/Maianki/shuttle-shopy-react/stargazers)
+</div>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-shuttle-shopy">About The Project</a>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#features-and-pages">Features</a>
+      <ul>
+      <li><a href="#home-page">Home page</a></li>
+        <li><a href="#product-listing-page">Product Listing page</a></li>
+        <li><a href="#cart-management">Cart Management</a></li>
+        <li><a href="#wishlist-management">Wishlist Management</a></li>
+        <li><a href="#alerts-and-snackbar">Alerts/Snackbar</a></li>
+        <li><a href="#order-summary">Order Summary</a></li>
+        <li><a href="#authentication">Authentication</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## About Shuttle Shopy
+Shuttle shopy is an ecommerce where you can buy all badminton related accessories - Your ultimate stop to buy all badminton equipments. Shuttle shopy is built using react, shuttle UI, react-router and mockbee as a mock backend.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##  Getting Started
+---
+### Prerequisites
 
-### `npm run eject`
+You need to have `node js` and `react` installed on your local to run this app.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
+Clone the repository on your local machine by typing the below commands on your terminal and cd to `shuttle-shoppy`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+git clone https://github.com/Maianki/shuttle-shopy-react.git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+cd shuttle-motion
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Install the necessary dependencies.
 
-## Learn More
+```
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`Shuttle shopy` uses `mockbee's` mockbackend. Since, we are working with mock backend servers. We need to give our mock backend access to the JWT secret key. So, for that, go ahead and create a .env file in your root directory of the app and add the below code in it:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+REACT_APP_JWT_SECRET = <JWT_SECRET_KEY_OF_YOUR_CHOICE>
+```
 
-### Code Splitting
+Now to run the app write the following command in your terminal:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This should run the app on localhost:3000.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Features and Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Home page
+- user can see a landing page with a list of few categories and trending products.
+- If user click on any one of the categories he/she will be redirected to the product list page with the selected category.
 
-### Deployment
+### Product Listing Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+ - user can see a product listing page where all the products are listed with a section of filters.
+ - user can apply various filters like price, category, rating etc. and can reset all filters by clicking on clear filters button.
+- On product card user can add item to cart or wishlist.
 
-### `npm run build` fails to minify
+### Cart Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- user can add or remove items from cart.
+- and can increase and decrease the quantity of products in the cart.
+- items can also be added to cart from trending section of home page.
+
+
+### Wishlist management
+
+- user can add or remove items from wishlist.
+- items can also be added to wishlist from trending section of home page.
+
+### Alerts and snackbar
+
+User will be notified via a snackbar when they - 
+ - Add item to the cart
+ - Remove Item from the cart
+ - Increase or Decrease item in the cart
+ - Move an item from the cart to the wishlist
+ - Add item to the wishlist
+ - Remove Item from the wishlist
+ - Move an item from wishlist to cart
+
+### Order Summary
+
+- users can see the order summary card where they can see price,discount, delivery charges and total amount.
+
+### Authentication
+
+- User can do a guest login
+- User can Log In/Log Out with existing credentials
+- User can sign up by if they are new to website
+- The login is persistent.
+
+---
+
+
+## Connect with me on
+
+<a href="https://twitter.com/Ankit_k10"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/ankit-kumain-4124a21b3/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+
+## Feedback
+
+If you have any feedback, please reach out to me at [Twitter](https://twitter.com/Ankit_k10)
+

@@ -7,6 +7,7 @@ export { ProductCard } from "./Card/ProductCard";
 export { CartProductCard } from "./Card/CartProductCard";
 export { OrderSummaryCard } from "./Card/OrderSummaryCard";
 export { ProductsFilter } from "./ProductsFilter";
+export { Snackbar } from "./Snackbar";
 export { Input } from "./Form";
 export { Label } from "./Form";
 

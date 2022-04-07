@@ -5,10 +5,12 @@ import { isInCart, isInWishlist } from "../utils/cart-and-wishlist-functions";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./auth-context";
 import { CART_API, WISHLIST_API } from "../constants/apiEndPoints";
+import { useSnackbar } from "./snackbar-context";
 
 const cartWishlistContext = createContext(null);
 
 const CartWishlistProvider = ({ children }) => {
+  const { addSnackbar } = useSnackbar();
   const {
     auth: { encodedToken },
   } = useAuth();
@@ -23,21 +25,34 @@ const CartWishlistProvider = ({ children }) => {
   const manageCart = async (product) => {
     const { cart } = cartWishlist;
     if (cart.length > 0 && isInCart(cart, product._id)) {
+      addSnackbar("Item is already in cart", "snackbar-primary");
       navigate("/cart");
     } else {
-      const response = await axios.post(
-        CART_API,
-        {
-          product,
-        },
-        {
-          headers: { authorization: encodedToken },
-        }
-      );
+      try {
+        const response = await axios.post(
+          CART_API,
+          {
+            product,
+          },
+          {
+            headers: { authorization: encodedToken },
+          }
+        );
 
-      const { cart: cartProducts } = response.data;
-      if (response.status === 201) {
-        cartWishlistDispatcher({ type: "UPDATE_CART", payload: cartProducts });
+        const { cart: cartProducts } = response.data;
+        if (response.status === 201) {
+          cartWishlistDispatcher({
+            type: "UPDATE_CART",
+            payload: cartProducts,
+          });
+          addSnackbar("Item added to cart", "snackbar-primary");
+        }
+      } catch (err) {
+        const { status, data } = err.response;
+
+        if (status === 500 && data.message === "jwt must be provided") {
+          addSnackbar("Please login to add item to cart", "snackbar-danger");
+        }
       }
     }
   };
@@ -58,6 +73,9 @@ const CartWishlistProvider = ({ children }) => {
         const { cart } = response.data;
 
         cartWishlistDispatcher({ type: "UPDATE_CART", payload: cart });
+        operation === "increment"
+          ? addSnackbar("Quantity of item increased by 1", "snackbar-primary")
+          : addSnackbar("Quantity of item decreased by 1", "snackbar-primary");
       }
     } catch (err) {
       console.log(err);
@@ -70,8 +88,11 @@ const CartWishlistProvider = ({ children }) => {
         headers: { authorization: encodedToken },
       });
 
-      const { cart } = response.data;
-      cartWishlistDispatcher({ type: "UPDATE_CART", payload: cart });
+      if (response.status === 200) {
+        const { cart } = response.data;
+        cartWishlistDispatcher({ type: "UPDATE_CART", payload: cart });
+        addSnackbar("Item deleted from cart", "snackbar-danger");
+      }
     } catch (err) {
       console.log(err);
     }
@@ -91,6 +112,7 @@ const CartWishlistProvider = ({ children }) => {
             type: "UPDATE_WISHLIST",
             payload: wishlistProducts,
           });
+          addSnackbar("Item deleted from wishlist", "snackbar-danger");
         }
       } catch (err) {
         console.log(err);
@@ -113,9 +135,17 @@ const CartWishlistProvider = ({ children }) => {
             type: "UPDATE_WISHLIST",
             payload: wishlistProducts,
           });
+          addSnackbar("Item added to wishlist", "snackbar-primary");
         }
       } catch (err) {
-        console.log(err);
+        const { status, data } = err.response;
+        console.log(err.response);
+        if (status === 500 && data.message === "jwt must be provided") {
+          addSnackbar(
+            "Please login to add item to wishlist",
+            "snackbar-danger"
+          );
+        }
       }
     }
   };

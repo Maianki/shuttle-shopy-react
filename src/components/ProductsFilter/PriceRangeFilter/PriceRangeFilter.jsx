@@ -16,7 +16,7 @@ export function PriceRangeFilter() {
         max='10000'
         onChange={(e) =>
           productsDispatcher({
-            type: "filterByPriceRange",
+            type: "FILTER_BY_PRICE_RANGE",
             payload: Number(e.target.value),
           })
         }

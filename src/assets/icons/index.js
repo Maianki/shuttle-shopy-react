@@ -13,4 +13,5 @@ export {
   FaSolidRecycle,
   FaSolidTruckMoving,
   IcBaselineLogin,
+  GridiconsCross,
 } from "./icon";

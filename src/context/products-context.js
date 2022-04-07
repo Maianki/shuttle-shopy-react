@@ -1,33 +1,24 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { productsReducer } from "../reducers";
+import { productsReducer, productsAndFilterInitialState } from "../reducers";
 import { useAxios } from "../hooks";
 import { PRODUCTS_API } from "../constants/apiEndPoints";
-
-const productsContext = createContext({});
+export const productsContext = createContext({});
 
 const ProductsProvider = ({ children }) => {
   const { response } = useAxios(PRODUCTS_API);
-  const initialState = {
-    productsList: [],
-    sortByPrice: "none",
-    filterByCategory: [],
-    filterByRating: [],
-    filterByPriceRange: 0,
-    isOutOFStock: true,
-  };
 
   const [products, productsDispatcher] = useReducer(
     productsReducer,
-    initialState
+    productsAndFilterInitialState
   );
 
   useEffect(() => {
-    productsDispatcher({ type: "initialize", payload: response });
+    productsDispatcher({ type: "INITIALISE_PRODUCTLIST", payload: response });
   }, [response]);
 
   return (
     <productsContext.Provider
-      value={{ products, productsDispatcher, initialState }}
+      value={{ products, productsDispatcher, productsAndFilterInitialState }}
     >
       {children}
     </productsContext.Provider>

@@ -4,7 +4,11 @@ import { useAuth } from "../../context/auth-context";
 
 export function NotAuthenticatedRoute() {
   const {
-    auth: { isLoggedIn },
+    auth: { encodedToken },
   } = useAuth();
-  return !isLoggedIn ? <Outlet /> : <Navigate to='/profile' replace></Navigate>;
+  return encodedToken ? (
+    <Navigate to='/shop-now' replace></Navigate>
+  ) : (
+    <Outlet />
+  );
 }

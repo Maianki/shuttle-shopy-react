@@ -16,7 +16,7 @@ function Navbar() {
   } = useCartWishlist();
 
   const {
-    auth: { isLoggedIn },
+    auth: { encodedToken },
   } = useAuth();
   return (
     <nav className='navbar flex-row'>
@@ -53,7 +53,7 @@ function Navbar() {
                 src={wishlistIcon}
                 alt='wishlist icon'
               />
-              {isLoggedIn && wishlist.length > 0 && (
+              {encodedToken && wishlist.length > 0 && (
                 <span className='badge badge-icon badge-navlink'>
                   {wishlist.length}
                 </span>
@@ -71,7 +71,7 @@ function Navbar() {
                 src={cartIcon}
                 alt='add to cart icon'
               />
-              {isLoggedIn && cart.length > 0 && (
+              {encodedToken && cart.length > 0 && (
                 <span className='badge badge-icon badge-navlink'>
                   {cart.length}
                 </span>
@@ -81,7 +81,7 @@ function Navbar() {
         </li>
 
         <li className='list-inline'>
-          {isLoggedIn ? (
+          {encodedToken ? (
             <Link className='flex-column menu-link' to='/profile'>
               <img
                 className='navbar-link'

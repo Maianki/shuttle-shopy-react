@@ -2,7 +2,7 @@ import React from "react";
 import { useProducts } from "../../../context/products-context";
 
 export function FilterHeader() {
-  const { productsDispatcher, initialState } = useProducts();
+  const { productsDispatcher, productsAndFilterInitialState } = useProducts();
 
   return (
     <li className='flex-row products-filter-header'>
@@ -11,9 +11,9 @@ export function FilterHeader() {
         className='btn btn-primary'
         onClick={() =>
           productsDispatcher({
-            type: "clearAll",
+            type: "CLEAR_ALL",
             payload: {
-              ...initialState,
+              ...productsAndFilterInitialState,
             },
           })
         }

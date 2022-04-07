@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useProducts } from "../../../context/products-context";
 
 function CategoryCard({ category: { categoryName, img } }) {
-  const { productsDispatcher, initialState } = useProducts();
+  const { productsDispatcher } = useProducts();
   return (
     <div className='card align-items-center'>
       <div className='card-header'>
@@ -18,11 +18,8 @@ function CategoryCard({ category: { categoryName, img } }) {
             className='btn btn-primary'
             onClick={() =>
               productsDispatcher({
-                type: "setCategoryFromHome",
-                payload: {
-                  initialState,
-                  categoryName,
-                },
+                type: "SET_CATEGORY_FROM_HOME",
+                payload: categoryName,
               })
             }
           >

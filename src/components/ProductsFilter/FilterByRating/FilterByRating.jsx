@@ -3,7 +3,6 @@ import { ratingFilterData } from "../../../data/rating-filter-data";
 import { useProducts } from "../../../context/products-context";
 export function FilterByRating() {
   const { products, productsDispatcher } = useProducts();
-  console.log(products.filterByRating);
 
   return (
     <li className='flex-column md-ht-1'>
@@ -17,7 +16,7 @@ export function FilterByRating() {
               id={value}
               onChange={() =>
                 productsDispatcher({
-                  type: "filterByRating",
+                  type: "FILTER_BY_RATING",
                   payload: Number(value),
                 })
               }
