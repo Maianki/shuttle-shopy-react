@@ -7,3 +7,5 @@ export {
   cartWishlistReducer,
   cartWishlistInitialState,
 } from "./cartWishlistReducer";
+
+export { snackbarInitialState, snackbarReducer } from "./snackbarReducer";

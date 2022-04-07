@@ -22,6 +22,7 @@ code {
   --SECONDARY-COLOR: #dbd9dc;
   --ACCENT-COLOR: #4c5344;
   --ROSE-RED-COLOR:#FF5964;
+  --Z-INDEX-99:99;
 }
 
 /*Utility class*/
