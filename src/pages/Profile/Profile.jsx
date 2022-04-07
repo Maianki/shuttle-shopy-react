@@ -3,6 +3,7 @@ import { Navbar, Footer } from "../../components";
 import { useAuth } from "../../context/auth-context";
 import { useDocumentTitle } from "../../hooks";
 import { Link } from "react-router-dom";
+import { useCartWishlist } from "../../context";
 
 export function Profile() {
   useDocumentTitle("Profile");
@@ -10,6 +11,13 @@ export function Profile() {
     auth: { user },
     authDispatcher,
   } = useAuth();
+  const { cartWishlistDispatcher } = useCartWishlist();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    authDispatcher({ type: "LOGGED_OUT" });
+    cartWishlistDispatcher({ type: "RESET_CART_AND_WISHLIST" });
+  };
   return (
     <div className='cart-container'>
       <Navbar />
@@ -21,10 +29,7 @@ export function Profile() {
             <button className='btn btn-primary'>Shop Now</button>
           </Link>
           <Link to='/'>
-            <button
-              className='btn btn-secondary'
-              onClick={() => authDispatcher({ type: "loggedOut" })}
-            >
+            <button className='btn btn-secondary' onClick={handleLogout}>
               Log out
             </button>
           </Link>

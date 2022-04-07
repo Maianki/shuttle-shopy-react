@@ -7,7 +7,7 @@ export const authInitialState = {
 
 export const authReducer = (state, action) => {
   switch (action.type) {
-    case "loggedIn":
+    case "LOGGED_IN":
       const {
         user: { firstName, lastName, _id: userId = "" },
         encodedToken,
@@ -21,7 +21,7 @@ export const authReducer = (state, action) => {
         encodedToken: encodedToken,
       };
 
-    case "loggedOut":
+    case "LOGGED_OUT":
       return authInitialState;
     default:
       return state;

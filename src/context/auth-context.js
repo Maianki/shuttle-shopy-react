@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import { authReducer, authInitialState } from "../reducers";
 import { LOGIN_API, SIGNUP_API } from "../constants/apiEndPoints";
 
@@ -21,17 +21,30 @@ const AuthProvider = ({ children }) => {
 
       const { createdUser: user, encodedToken } = response.data;
 
-      // saving the encodedToken in the localStorage
-      localStorage.setItem("token", encodedToken);
+      if (response.status === 201) {
+        // saving the encodedToken and user in the localStorage
+        localStorage.setItem("token", JSON.stringify(encodedToken));
+        localStorage.setItem("user", JSON.stringify(user));
 
-      authDispatcher({
-        type: "loggedIn",
-        payload: { user, encodedToken },
-      });
+        authDispatcher({
+          type: "LOGGED_IN",
+          payload: { user, encodedToken },
+        });
+      }
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const encodedToken = JSON.parse(localStorage.getItem("token"));
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    authDispatcher({
+      type: "LOGGED_IN",
+      payload: { user, encodedToken },
+    });
+  }, []);
 
   const handleSignIn = async (userInfo) => {
     const { email, password } = userInfo;
@@ -42,13 +55,16 @@ const AuthProvider = ({ children }) => {
       });
       const { foundUser: user, encodedToken } = response.data;
 
-      // saving the encodedToken in the localStorage
-      localStorage.setItem("token", encodedToken);
+      if (response.status === 200) {
+        // saving the encodedToken in the localStorage
+        localStorage.setItem("token", JSON.stringify(encodedToken));
+        localStorage.setItem("user", JSON.stringify(user));
 
-      authDispatcher({
-        type: "loggedIn",
-        payload: { user, encodedToken },
-      });
+        authDispatcher({
+          type: "LOGGED_IN",
+          payload: { user, encodedToken },
+        });
+      }
     } catch (error) {
       console.log(error);
     }
