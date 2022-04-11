@@ -49,3 +49,8 @@
     height: 2.2rem;
     background-color: var(--ROSE-RED-COLOR);
 }
+@media screen and (max-width:var(--LARGE-BREAKPOINT)) {
+    .navbar-form{
+        order:
+    }
+}

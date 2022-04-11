@@ -23,6 +23,9 @@ code {
   --ACCENT-COLOR: #4c5344;
   --ROSE-RED-COLOR:#FF5964;
   --Z-INDEX-99:99;
+  --SMALL-BREAKPOINT: 480px;
+  --MEDIUM-BREAKPOINT: 900px;
+  --LARGE-BREAKPOINT: 1048px;
 }
 
 /*Utility class*/
