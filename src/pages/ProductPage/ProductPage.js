@@ -12,7 +12,7 @@ export function ProductPage() {
 
   return (
     <div className='productpage-container'>
-      <Navbar />
+      {/* <Navbar /> */}
       <aside className='flex-column products-filter card'>
         <ProductsFilter />
       </aside>

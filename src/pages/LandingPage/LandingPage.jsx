@@ -23,7 +23,7 @@ function LandingPage() {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Header />
       <main>
         {/* Featured Categories */}

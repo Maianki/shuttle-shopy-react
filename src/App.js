@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react"
+import React, { useState } from "react";
 import {
   LandingPage,
   PageNotFound,
@@ -10,13 +10,27 @@ import {
   Cart,
   Profile,
 } from "./pages";
-import { AuthenticatedRoute, NotAuthenticatedRoute } from "./components";
+import {
+  AuthenticatedRoute,
+  NotAuthenticatedRoute,
+  Drawer,
+  Navbar,
+} from "./components";
 import { Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
 
 function App() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const toggleDrawer = () => {
+    setIsDrawerOpen((prev) => !prev);
+  };
+
   return (
     <div className='App'>
+      {isDrawerOpen && (
+        <Drawer toggleDrawer={toggleDrawer} isDrawerOpen={isDrawerOpen} />
+      )}
+      <Navbar toggleDrawer={toggleDrawer} />
       <Routes>
         <Route path='/' element={<LandingPage />}></Route>
         <Route path='/shop-now' element={<ProductPage />}></Route>

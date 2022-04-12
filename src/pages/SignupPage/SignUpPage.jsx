@@ -51,7 +51,7 @@ export function SignUpPage() {
 
   return (
     <div className='signup-container'>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className='signup-main flex-column'>
         <div className='form-container card'>
           <h2 className='form-heading'>Sign Up</h2>

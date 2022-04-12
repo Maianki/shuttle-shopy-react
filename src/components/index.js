@@ -10,6 +10,7 @@ export { ProductsFilter } from "./ProductsFilter";
 export { Snackbar } from "./Snackbar";
 export { Input } from "./Form";
 export { Label } from "./Form";
+export { Drawer } from "./Drawer";
 
 export {
   AuthenticatedRoute,

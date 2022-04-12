@@ -13,7 +13,7 @@ export function Wishlist() {
   } = useCartWishlist();
   return (
     <div className='wishlist-container'>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className='wishlist-main'>
         <h1 className='text-center wishlist-heading'>My Wishlist</h1>
         <p className='md-ht-1 text-center'>

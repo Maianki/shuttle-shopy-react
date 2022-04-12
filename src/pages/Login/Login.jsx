@@ -30,7 +30,7 @@ export function Login() {
 
   return (
     <div className='login-container'>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className='login-main flex-column'>
         <div className='form-container card'>
           <h2 className='form-heading'>Login</h2>
