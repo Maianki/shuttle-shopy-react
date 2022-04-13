@@ -9,7 +9,7 @@
     font-size: 14px;
     position: fixed;
     z-index: var(--Z-INDEX-999);
-    top: 7.5rem;
+    bottom: 1.5rem;
     right: 1rem;
     animation: toast-in-right .7s;
 }

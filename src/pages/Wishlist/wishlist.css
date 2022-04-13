@@ -1,8 +1,8 @@
 /*CSS for page layout*/
 .wishlist-container{
     display: grid;
-    height: 100vh;
-    grid-template-rows: auto 1fr auto;
+    height: calc(100vh - 11rem);
+    grid-template-rows: 1fr auto;
 }
 
 .wishlist-main{
@@ -20,4 +20,28 @@
     justify-content: center;
     padding-top: 3rem;   
     gap: 3rem;
+}
+
+@media screen and (max-width:1048px) {
+    .wishlist-container {
+        height: calc(100vh - 160.4px);
+    }
+}
+
+@media screen and (max-width:648px) {
+    .wishlist-container {
+        height: calc(100vh - 15.4rem);
+    }
+}
+
+@media screen and (max-width:428px) {
+    .wishlist-container {
+        height: calc(100vh - 9.4rem);
+    }
+}
+
+@media screen and (max-width:328px) {
+    .wishlist-container {
+        height: calc(100vh - 7.3rem);
+    }
 }

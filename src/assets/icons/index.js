@@ -16,4 +16,5 @@ export {
   IcBaselineLogin,
   GridiconsCross,
   MakiCross11,
+  MdiFilter,
 } from "./icon";

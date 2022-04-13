@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Footer, Input, Label } from "../../components";
+import { Footer, Input, Label } from "../../components";
 import { BiEye, BiEyeSlash } from "../../assets/icons";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from "../../hooks";
@@ -41,7 +41,7 @@ export function Login() {
                 type='email'
                 id='email'
                 name='email'
-                placeholder='testSingh@gmail.com'
+                placeholder='johndoe@gmail.com'
                 value={userDetails.email}
                 setUserDetails={setUserDetails}
                 userDetails={userDetails}

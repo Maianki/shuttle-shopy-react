@@ -1,8 +1,8 @@
 /*CSS for page layout*/
 .signup-container{
     display: grid;
-    height: 100vh;
-    grid-template-rows: auto 1fr auto;
+    height: calc(100vh - 8rem);
+    grid-template-rows: 1fr auto;
   }
 
 .signup-main {

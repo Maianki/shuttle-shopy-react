@@ -2,6 +2,7 @@
 .navbar {
     height: auto;
     min-height: 8rem;
+    width: 100%;
 }
 .form-search{
     outline: none;
@@ -117,7 +118,7 @@
     }
 }
 
-@media screen and (max-width:280px) {
+@media screen and (max-width:320px) {
 
     .navbar {
         flex-wrap: nowrap;
