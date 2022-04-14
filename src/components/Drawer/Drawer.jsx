@@ -91,14 +91,23 @@ export function Drawer({ toggleDrawer, isDrawerOpen }) {
               Wishlist
             </NavLink>
           </li>
-
-          <li
-            className='flex-row drawer-menu-link text-md'
-            onClick={handleLogout}
-            role='button'
-          >
-            Logout
-          </li>
+          {encodedToken ? (
+            <li
+              className='flex-row drawer-menu-link text-md'
+              onClick={handleLogout}
+              role='button'
+            >
+              Logout
+            </li>
+          ) : (
+            <NavLink
+              to='/login'
+              className='flex-row drawer-menu-link text-md'
+              style={activeLinkHandler}
+            >
+              Login
+            </NavLink>
+          )}
         </ul>
       </div>
     </>

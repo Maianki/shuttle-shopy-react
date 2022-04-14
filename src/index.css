@@ -16,11 +16,9 @@ body {
   --ACCENT-COLOR: #4c5344;
   --ROSE-RED-COLOR:#FF5964;
   --Z-INDEX-9:9;
+  --Z-INDEX-199:199;
   --Z-INDEX-99:99;
   --Z-INDEX-999:999;
-  --SMALL-BREAKPOINT: 480px;
-  --MEDIUM-BREAKPOINT: 900px;
-  --LARGE-BREAKPOINT: 1048px;
 }
 
 /*Utility class*/
