@@ -98,8 +98,14 @@
 }
 
 /*Media Query*/
+@media screen and (max-width:1048px) {
+  .productpage-container {
+    height: calc(100vh - 16rem);
+  }
+}
 @media screen and (max-width: 768px) {
   .productpage-container {
+    height: calc(100vh - 15.4rem);
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
       grid-template-areas: "filter filter filter filter"
@@ -121,4 +127,16 @@
     grid-area: filter;
   }
   
+}
+
+@media screen and (max-width:428px) {
+  .productpage-container {
+    height: calc(100vh - 9.4rem);
+  }
+}
+
+@media screen and (max-width:328px) {
+  .productpage-container {
+    height: calc(100vh - 7.3rem);
+  }
 }
