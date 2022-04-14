@@ -1,8 +1,8 @@
 /*CSS for page layout*/
 .login-container{
   display: grid;
-  height: 100vh;
-  grid-template-rows: auto 1fr auto;
+  height: calc(100vh - 8rem);
+  grid-template-rows: 1fr auto;
 }
 
 .login-main {
@@ -50,4 +50,22 @@
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--PRIMARY-COLOR);
+}
+
+@media screen and (max-width:648px) {
+  .login-container {
+    height: calc(100vh - 15.4rem);
+  }
+}
+
+@media screen and (max-width:428px) {
+  .login-container {
+    height: calc(100vh - 9.4rem);
+  }
+}
+
+@media screen and (max-width:328px) {
+  .login-container {
+    height: calc(100vh - 7.3rem);
+  }
 }

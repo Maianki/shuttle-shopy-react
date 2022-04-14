@@ -8,9 +8,10 @@ import {
 } from "../../assets/images";
 import { useAuth, useCartWishlist } from "../../context";
 import "./navbar.css";
+import { CharmMenuHamburger } from "../../assets/icons";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ toggleDrawer }) {
   const {
     cartWishlist: { cart, wishlist },
   } = useCartWishlist();
@@ -42,6 +43,12 @@ function Navbar() {
             {/* -- Shop Now -- */}
             Shop now
           </Link>
+        </li>
+
+        <li className='list-inline'>
+          <span className='flex-column menu-link'>
+            <CharmMenuHamburger onClick={toggleDrawer} />
+          </span>
         </li>
 
         <li className='list-inline'>

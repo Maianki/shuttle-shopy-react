@@ -1,0 +1,48 @@
+.drawer {
+    width: 70%;
+    max-width: 28rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: var(--Z-INDEX-99);
+    background-color: var(--SECONDARY-COLOR);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.drawer-header {
+    position: relative;
+    background-color: var(--PRIMARY-COLOR-DARK);
+    height: 16.1rem;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.drawer-header .text-bold-500 {
+    color: var(--SECONDARY-COLOR);
+}
+
+.btn-drawer-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.8rem;
+    color: var(--WHITE-COLOR);
+    cursor: pointer;
+}
+
+.drawer-menu-link {
+    color: var(--PRIMARY-COLOR-DARK);
+    font-size: 1.8rem;
+    padding: 6px 0px;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    z-index: var(--Z-INDEX-9);
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}

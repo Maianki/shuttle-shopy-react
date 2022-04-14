@@ -6,6 +6,7 @@ export {
   BiTrashFill,
   BiXCircleFill,
   BiXCircle,
+  CharmMenuHamburger,
   FaRegularUserCircle,
   FaSolidStar,
   FaSolidCreditCard,
@@ -14,4 +15,6 @@ export {
   FaSolidTruckMoving,
   IcBaselineLogin,
   GridiconsCross,
+  MakiCross11,
+  MdiFilter,
 } from "./icon";

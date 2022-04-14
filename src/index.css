@@ -1,28 +1,24 @@
 @import url("https://shuttleui.netlify.app/components/components-styles/shuttleUI-main.css");
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  width: 100%;
+  height: 100vh;
 }
 
 /*CSS Variables*/
 :root {
   --PRIMARY-COLOR: #4b4453;
+  --PRIMARY-COLOR-DARK:#3f3946;
   --GRAY-COLOR: #ece6e6;
   --WHITE-COLOR: #fff;
   --BLACK-COLOR: #000;
   --SECONDARY-COLOR: #dbd9dc;
   --ACCENT-COLOR: #4c5344;
   --ROSE-RED-COLOR:#FF5964;
+  --Z-INDEX-9:9;
+  --Z-INDEX-199:199;
   --Z-INDEX-99:99;
+  --Z-INDEX-999:999;
 }
 
 /*Utility class*/
@@ -43,4 +39,30 @@ code {
 
 .card img{
   aspect-ratio: 4/3;
+}
+/*MEDIA QUERIES*/
+
+@media screen and (max-width:648px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media screen and (max-width:428px) {
+  html {
+    font-size: 45%;
+  }
+
+  input,
+  input::-webkit-input-placeholder {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width:328px) {
+
+  html {
+    font-size: 35%;
+  }
+
 }

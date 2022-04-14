@@ -1,12 +1,13 @@
 /*CSS for page layout*/
 
-.cart-container{
+/*CSS for page layout*/
+.cart-container {
     display: grid;
-    height: 100vh;
-    grid-template-rows: auto 1fr auto;
+    min-height: calc(100vh - 11rem);
+    grid-template-rows: 1fr auto;
 }
 
-.cart-main{
+.cart-main {
     margin: 5rem;
 }
 
@@ -44,4 +45,33 @@
     margin: 1rem 1.2rem;
     font-size: 2.2rem;
     background-color: var(--WHITE-COLOR);
+}
+
+@media screen and (max-width:1048px) {
+    .cart-container {
+        height: calc(100vh - 16rem);
+    }
+}
+
+@media screen and (max-width:648px) {
+    .cart-main {
+        margin: 0;
+        margin-top: 5rem;
+    }
+
+    .cart-container {
+        height: calc(100vh - 15.4rem);
+    }
+}
+
+@media screen and (max-width:428px) {
+    .cart-container {
+        height: calc(100vh - 9.4rem);
+    }
+}
+
+@media screen and (max-width:328px) {
+    .cart-container {
+        height: calc(100vh - 7.3rem);
+    }
 }

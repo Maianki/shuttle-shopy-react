@@ -17,7 +17,7 @@ export function Profile() {
   };
   return (
     <div className='cart-container'>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className='cart-main'>
         <div className='card'>
           <p className='md-ht-1'>Welcome, to shuttle shoppy</p>

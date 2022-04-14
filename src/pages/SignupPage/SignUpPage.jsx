@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Footer, Input, Label } from "../../components";
+import { Footer, Input, Label } from "../../components";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from "../../hooks";
 import "./sign-up-page.css";
@@ -51,7 +51,6 @@ export function SignUpPage() {
 
   return (
     <div className='signup-container'>
-      <Navbar />
       <main className='signup-main flex-column'>
         <div className='form-container card'>
           <h2 className='form-heading'>Sign Up</h2>
@@ -62,7 +61,7 @@ export function SignUpPage() {
                 type='text'
                 id='firstName'
                 name='firstName'
-                placeholder='Singh'
+                placeholder='John'
                 value={userDetails.firstName}
                 setUserDetails={setUserDetails}
                 userDetails={userDetails}
@@ -75,7 +74,7 @@ export function SignUpPage() {
                 type='text'
                 id='lastName'
                 name='lastName'
-                placeholder='Singh'
+                placeholder='doe'
                 value={userDetails.lastName}
                 setUserDetails={setUserDetails}
                 userDetails={userDetails}
@@ -88,7 +87,7 @@ export function SignUpPage() {
                 type='email'
                 id='email'
                 name='email'
-                placeholder='testSingh@gmail.com'
+                placeholder='johndoe@gmail.com'
                 value={userDetails.email}
                 setUserDetails={setUserDetails}
                 userDetails={userDetails}
@@ -125,7 +124,7 @@ export function SignUpPage() {
                 type={showPassWord.confirmPassword ? `text` : `password`}
                 id='confirm-password'
                 name='confirmPassword'
-                placeholder='Enter Pasword again'
+                placeholder='Enter pasword again'
                 value={userDetails.confirmPassword}
                 setUserDetails={setUserDetails}
                 userDetails={userDetails}

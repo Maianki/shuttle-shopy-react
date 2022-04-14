@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Footer, ProductCard } from "../../components";
+import { Footer, ProductCard } from "../../components";
 import { useCartWishlist } from "../../context";
 import { useDocumentTitle } from "../../hooks";
 
@@ -13,7 +13,6 @@ export function Wishlist() {
   } = useCartWishlist();
   return (
     <div className='wishlist-container'>
-      <Navbar />
       <main className='wishlist-main'>
         <h1 className='text-center wishlist-heading'>My Wishlist</h1>
         <p className='md-ht-1 text-center'>
