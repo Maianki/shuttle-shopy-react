@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./product-page.css";
 import { MdiFilter } from "../../assets/icons";
 import { Footer, ProductCard } from "../../components";
@@ -7,23 +7,49 @@ import { useDocumentTitle } from "../../hooks";
 import { useFilteredData } from "../../hooks/useFilteredData";
 
 export function ProductPage() {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
+
+  const toggleFilterDrawer = () => {
+    setIsOpenFilter((prev) => !prev);
+  };
+
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  });
+
   useDocumentTitle("Products page");
 
   const { finalFilteredData: productsList } = useFilteredData();
 
   return (
     <div className='productpage-container'>
-      <aside className='flex-column products-filter card'>
-        <ProductsFilter />
-      </aside>
-      <div className='filter-icon'>
+      {width > 768 ? (
+        <aside className='flex-column products-filter card'>
+          <ProductsFilter />
+        </aside>
+      ) : (
+        isOpenFilter && (
+          <section className='filters flex-column'>
+            <button
+              className='btn-close-filter text-bold-700 text-decoration-underline'
+              onClick={toggleFilterDrawer}
+            >
+              Close
+            </button>
+            <ProductsFilter />
+          </section>
+        )
+      )}
+
+      <div className='filter-icon' onClick={toggleFilterDrawer} role='button'>
         <MdiFilter />
-        <p className='pd-ht-1 flex-column text-decoration-underline'>
-          Filter
-          <span className='filter-icon-text text-sm'>
-            Showing {productsList.length} products
-          </span>
-        </p>
+        <p className='flex-column text-lg text-decoration-underline'>Filters</p>
       </div>
 
       <main className='productpage-main flex-row'>
