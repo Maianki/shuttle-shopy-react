@@ -1,7 +1,6 @@
 import React from "react";
 import "./landingPage.css";
 import {
-  Navbar,
   Header,
   Footer,
   CategoryCard,
@@ -23,7 +22,6 @@ function LandingPage() {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <Header />
       <main>
         {/* Featured Categories */}

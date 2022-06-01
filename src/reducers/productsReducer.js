@@ -10,6 +10,7 @@ export const productsAndFilterInitialState = {
 export const productsReducer = (state, action) => {
   const { payload, type } = action;
   const { productsList } = state;
+  
   switch (type) {
     case "INITIALISE_PRODUCTLIST":
       return { ...state, productsList: payload };
@@ -17,7 +18,7 @@ export const productsReducer = (state, action) => {
       return {
         ...state,
         filterByCategory: state.filterByCategory.includes(payload)
-          ? state.filterByCategory.filter(
+          ? state.filterByCategory?.filter(
               (categoryName) => categoryName !== payload
             )
           : [...state.filterByCategory, payload],
@@ -41,11 +42,10 @@ export const productsReducer = (state, action) => {
       return { ...payload, productsList: productsList };
 
     case "SET_CATEGORY_FROM_HOME":
-
       return {
         ...productsAndFilterInitialState,
         productsList: productsList,
-        filterByCategory: payload,
+        filterByCategory: [...state.filterByCategory, payload],
       };
 
     default:
