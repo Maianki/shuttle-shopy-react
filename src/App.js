@@ -15,6 +15,7 @@ import {
   NotAuthenticatedRoute,
   Drawer,
   Navbar,
+  ScrollToTop,
 } from "./components";
 import { Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div className='App'>
+      <ScrollToTop />
       {isDrawerOpen && (
         <Drawer toggleDrawer={toggleDrawer} isDrawerOpen={isDrawerOpen} />
       )}

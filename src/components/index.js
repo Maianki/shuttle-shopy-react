@@ -11,6 +11,7 @@ export { Snackbar } from "./Snackbar";
 export { Input } from "./Form";
 export { Label } from "./Form";
 export { Drawer } from "./Drawer";
+export { ScrollToTop } from "./ScrollToTop/ScrollToTop";
 
 export {
   AuthenticatedRoute,

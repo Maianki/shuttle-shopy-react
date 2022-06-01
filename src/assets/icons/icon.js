@@ -180,6 +180,17 @@ export function IcBaselineLogin(props) {
   );
 }
 
+export function IcBaselineArrowUpward(props) {
+  return (
+    <svg width='1em' height='1em' viewBox='0 0 24 24' {...props}>
+      <path
+        fill='#888888'
+        d='m4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8l-8 8z'
+      ></path>
+    </svg>
+  );
+}
+
 export function MakiCross11(props) {
   return (
     <svg width='1em' height='1em' viewBox='0 0 11 11' {...props}>
@@ -190,7 +201,6 @@ export function MakiCross11(props) {
     </svg>
   );
 }
-
 
 export function MdiFilter(props) {
   return (
