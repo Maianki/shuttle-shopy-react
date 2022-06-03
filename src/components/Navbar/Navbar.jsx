@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import {
   logo,
   wishlistIcon,
@@ -6,19 +6,41 @@ import {
   cartIcon,
   profileIcon,
 } from "../../assets/images";
-import { useAuth, useCartWishlist } from "../../context";
+import { useAuth, useCartWishlist, useProducts } from "../../context";
 import "./navbar.css";
 import { CharmMenuHamburger } from "../../assets/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDebounce } from "../../hooks";
 
 function Navbar({ toggleDrawer }) {
+  const [searchValue, setSearchValue] = useState("");
+
+  const debouncedValue = useDebounce(searchValue, 1000);
+
+  const navigate = useNavigate();
+
   const {
     cartWishlist: { cart, wishlist },
   } = useCartWishlist();
 
+  const { productsDispatcher } = useProducts();
+
+  useEffect(() => {
+    productsDispatcher({
+      type: "SET_FILTERED_DATA_BY_SEARCH",
+      payload: debouncedValue,
+    });
+  }, [debouncedValue, productsDispatcher]);
+
   const {
     auth: { encodedToken },
   } = useAuth();
+
+  const searchHandler = (e) => {
+    setSearchValue(e.target.value);
+    navigate("/shop-now");
+  };
+
   return (
     <nav className='navbar flex-row'>
       <Link className='navbar-brand' to='/'>
@@ -31,6 +53,8 @@ function Navbar({ toggleDrawer }) {
           type='search'
           placeholder='Search'
           aria-label='Search'
+          value={searchValue}
+          onChange={searchHandler}
         />
       </form>
 
@@ -108,4 +132,4 @@ function Navbar({ toggleDrawer }) {
   );
 }
 
-export { Navbar }
+export { Navbar };

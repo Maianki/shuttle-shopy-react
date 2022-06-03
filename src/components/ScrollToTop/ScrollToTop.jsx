@@ -25,7 +25,7 @@ export function ScrollToTop() {
   if (toggleScrollBtn) {
     return (
       <button
-        class='btn btn-fab align-items-center fab-position'
+        className='btn btn-fab align-items-center fab-position'
         onClick={scrollToTopHandler}
       >
         <IcBaselineArrowUpward />

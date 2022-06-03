@@ -68,9 +68,25 @@ const getFilteredByPriceSort = (products, sortBy) => {
   }
 };
 
+/***
+ * This function filters products by search results
+ * @params - array of products and searched Value
+ * @return - filtered products based on searched value
+ */
+
+ const getFilteredBySearch = (products, searchedValue) => {
+   if(searchedValue === ""){
+     return products
+   }else{
+     let re = new RegExp(`${searchedValue}`,"i")
+     return products.filter(({name})=>re.test(name))
+   }
+};
+
 export {
   getFilteredByCategory,
   getFilteredByRating,
   getFilteredByPriceRange,
   getFilteredByPriceSort,
+  getFilteredBySearch
 };

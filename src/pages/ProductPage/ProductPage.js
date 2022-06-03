@@ -9,6 +9,9 @@ import { useFilteredData } from "../../hooks/useFilteredData";
 export function ProductPage() {
   const [width, setWidth] = useState(window.innerWidth);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
+  const { finalFilteredData: productsList } = useFilteredData();
+
+  useDocumentTitle("Products page");
 
   const toggleFilterDrawer = () => {
     setIsOpenFilter((prev) => !prev);
@@ -23,9 +26,7 @@ export function ProductPage() {
     return () => window.removeEventListener("resize", updateWidth);
   });
 
-  useDocumentTitle("Products page");
 
-  const { finalFilteredData: productsList } = useFilteredData();
 
   return (
     <div className='productpage-container'>
