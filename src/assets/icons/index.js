@@ -14,6 +14,7 @@ export {
   FaSolidRecycle,
   FaSolidTruckMoving,
   IcBaselineLogin,
+  IcBaselineArrowUpward,
   GridiconsCross,
   MakiCross11,
   MdiFilter,

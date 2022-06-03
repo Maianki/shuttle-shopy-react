@@ -5,12 +5,13 @@ export const productsAndFilterInitialState = {
   filterByRating: [],
   filterByPriceRange: 0,
   isOutOFStock: true,
+  filteredDataBySearch: "",
 };
 
 export const productsReducer = (state, action) => {
   const { payload, type } = action;
   const { productsList } = state;
-  
+
   switch (type) {
     case "INITIALISE_PRODUCTLIST":
       return { ...state, productsList: payload };
@@ -46,6 +47,13 @@ export const productsReducer = (state, action) => {
         ...productsAndFilterInitialState,
         productsList: productsList,
         filterByCategory: [...state.filterByCategory, payload],
+      };
+
+    case "SET_FILTERED_DATA_BY_SEARCH":
+      console.log(payload);
+      return {
+        ...state,
+        filteredDataBySearch: payload,
       };
 
     default:

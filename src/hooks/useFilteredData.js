@@ -4,11 +4,12 @@ import {
   getFilteredByRating,
   getFilteredByPriceRange,
   getFilteredByPriceSort,
+  getFilteredBySearch,
 } from "../utils/products-filter-functions";
 
 /**
  * custom hook to filterData based on filter appplied by user
- * 
+ *
  * @returns filtered data based on filter applied by user
  *
  */
@@ -21,6 +22,7 @@ export function useFilteredData() {
     filterByCategory,
     filterByRating,
     filterByPriceRange,
+    filteredDataBySearch: filteredSearch,
   } = products;
   const filteredData = JSON.parse(JSON.stringify(productsList));
 
@@ -44,5 +46,10 @@ export function useFilteredData() {
     sortByPrice
   );
 
-  return { finalFilteredData: filteredDataByPriceSort };
+  const filteredDataBySearch = getFilteredBySearch(
+    filteredDataByPriceSort,
+    filteredSearch
+  );
+
+  return { finalFilteredData: filteredDataBySearch };
 }
