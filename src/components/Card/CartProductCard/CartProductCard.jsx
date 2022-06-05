@@ -2,6 +2,7 @@ import React from "react";
 import { BiHeartFill, BiTrashFill } from "../../../assets/icons";
 import { useCartWishlist } from "../../../context";
 import { isInWishlist } from "../../../utils/cart-and-wishlist-functions";
+import { useLocation } from "react-router-dom";
 import "./cart-product-card.css";
 
 export function CartProductCard({
@@ -25,6 +26,8 @@ export function CartProductCard({
     cartWishlist: { wishlist },
   } = useCartWishlist();
 
+  const { pathname } = useLocation();
+
   const handleRemoveFromCart = (productid) => {
     manageDeleteItemIncart(productid);
   };
@@ -37,11 +40,25 @@ export function CartProductCard({
     manipulateProductQtyIncart(productId, operation);
   };
 
+  const date = new Date();
+  const newDate = date.setDate(date.getDate() + 4);
+  const deliveryDate = new Date(newDate);
+
   return (
-    <div className='card align-items-center card-horizontal'>
+    <div
+      className={
+        pathname === "/checkout"
+          ? `align-items-center card-horizontal md-btm-1`
+          : `card align-items-center card-horizontal`
+      }
+    >
       <div className='card-header'>
         <img
-          className='card-img card-horizontal-img'
+          className={
+            pathname === "/checkout"
+              ? `checkout-card-img card-horizontal-img`
+              : `card-img card-horizontal-img`
+          }
           src={img}
           alt={productName}
         />
@@ -55,44 +72,54 @@ export function CartProductCard({
             ({discountPercent}% OFF)
           </span>
         </p>
-        <div className='card-horizontal-footer'>
-          <div className='flex-row btn-quantity'>
-            <button
-              className='btn-quantity-minus'
-              onClick={() => handleQty(_id, "decrement")}
-              disabled={qty <= 1}
-            >
-              -
-            </button>
 
-            <div className='quantity-display'>{qty}</div>
-            <button
-              className='btn-quantity-plus'
-              onClick={() => handleQty(_id, "increment")}
-            >
-              +
-            </button>
+        {pathname === "/cart" ? (
+          <div className='card-horizontal-footer'>
+            <div className='flex-row btn-quantity'>
+              <button
+                className='btn-quantity-minus'
+                onClick={() => handleQty(_id, "decrement")}
+                disabled={qty <= 1}
+              >
+                -
+              </button>
+
+              <div className='quantity-display'>{qty}</div>
+              <button
+                className='btn-quantity-plus'
+                onClick={() => handleQty(_id, "increment")}
+              >
+                +
+              </button>
+
+              <button
+                className='btn btn-outline-primary btn-remove-product'
+                onClick={() => handleRemoveFromCart(_id)}
+              >
+                <BiTrashFill />
+              </button>
+            </div>
 
             <button
-              className='btn btn-outline-primary btn-remove-product'
-              onClick={() => handleRemoveFromCart(_id)}
+              className='card-horizontal-btn btn btn-primary'
+              onClick={handleWishlist}
             >
-              <BiTrashFill />
+              <BiHeartFill />
+              <span className='md-ht-1'>
+                {isInWishlist(wishlist, product._id)
+                  ? `WISHLISTED`
+                  : `SAVE TO WISHLIST`}
+              </span>
             </button>
           </div>
-
-          <button
-            className='card-horizontal-btn btn btn-primary'
-            onClick={handleWishlist}
-          >
-            <BiHeartFill />
-            <span className='md-ht-1'>
-              {isInWishlist(wishlist, product._id)
-                ? `WISHLISTED`
-                : `SAVE TO WISHLIST`}
-            </span>
-          </button>
-        </div>
+        ) : (
+          <>
+            <p className='text-xs md-ht-1 text-bold-500'>Quantity : {qty}</p>
+            <p className='text-xs md-ht-1 text-bold-500 text-highlight'>
+              Estimated delivery: {deliveryDate.toDateString()}
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

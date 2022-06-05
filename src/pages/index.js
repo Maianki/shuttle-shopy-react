@@ -6,3 +6,4 @@ export { Login } from "./Login/Login";
 export { SignUpPage } from "./SignupPage/SignUpPage";
 export { Wishlist } from "./Wishlist/Wishlist";
 export { Cart } from "./Cart/Cart";
+export { Checkout } from "./Checkout/Checkout";

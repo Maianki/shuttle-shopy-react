@@ -9,6 +9,7 @@ import {
   Wishlist,
   Cart,
   Profile,
+  Checkout,
 } from "./pages";
 import {
   AuthenticatedRoute,
@@ -45,6 +46,7 @@ function App() {
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/wishlist' element={<Wishlist />}></Route>
           <Route path='/profile' element={<Profile />}></Route>
+          <Route path='/checkout' element={<Checkout />}></Route>
         </Route>
         <Route path='/mockman' element={<Mockman />}></Route>
         <Route path='*' element={<PageNotFound />}></Route>

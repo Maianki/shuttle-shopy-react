@@ -23,7 +23,9 @@
     align-self: self-start;
 }
 
-
+.checkout-card-img {
+    max-height: 12.5rem;
+}
 /*Styling for product quantity block*/
 
 .btn-quantity{

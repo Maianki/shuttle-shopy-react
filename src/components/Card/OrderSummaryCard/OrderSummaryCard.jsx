@@ -6,6 +6,9 @@ import {
   calculateDeliveryCharges,
 } from "../../../utils/cart-and-wishlist-functions";
 import "./order-summary-card.css";
+import { Link, useLocation } from "react-router-dom";
+import { initializeRazorpay } from "../../../utils/initializeRazorpay";
+import { v4 as uuid } from "uuid";
 
 export function OrderSummaryCard() {
   const {
@@ -19,10 +22,56 @@ export function OrderSummaryCard() {
   const totalAmount =
     totalPrice - (totalPrice - totalDiscount) + deliveryCharges;
 
+  const { pathname } = useLocation();
+
+  const displayRazorpay = async (amount) => {
+    const res = await initializeRazorpay();
+    if (!res) {
+      console.log("You are offline... Failed to load Rzorpay SDK.");
+      return;
+    }
+
+    const options = {
+      key: process.env.REACT_APP_RAZORPAY_KEY,
+      currency: "INR",
+      amount: amount * 100,
+      name: "Shuttle Shopy",
+      description: "Test transaction",
+      handler: function (response) {
+        const paymentId = response.razorpay_payment_id;
+        const orderId = uuid();
+
+        const order = {
+          paymentId,
+          orderId,
+          amountPaid: amount,
+          // orderedProducts: [...cartProducts],
+          // deliveryAddress: { ...orderDetails.orderAddress },
+        };
+      },
+      prefill: {
+        name: "shuttle shopy",
+        email: "gaurav.kumar@example.com",
+        contact: "9999999999",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
   return (
-    <div className='card card-order-summary'>
+    <div
+      className={
+        pathname === "/checkout"
+          ? `card-order-summary`
+          : `card card-order-summary`
+      }
+    >
       <div className='card-header'>
-        <h2 className='text-primary text-center'>ORDER SUMMARY</h2>
+        <h2 className='text-primary text-center'>
+          {pathname === "/checkout" ? `PRICE DETAILS` : `ORDER SUMMARY`}
+        </h2>
       </div>
       <div className='card-body'>
         <ul>
@@ -53,9 +102,20 @@ export function OrderSummaryCard() {
         <p className='text-sm text-center text-highlight'>
           * You will save &#8377; {totalPrice - totalAmount} on this order
         </p>
-        <button className='card-btn btn btn-primary'>
-          <span className='md-ht-1'>PLACE YOUR ORDER</span>
-        </button>
+        {pathname === "/cart" ? (
+          <Link to='/checkout'>
+            <button className='card-btn btn btn-primary'>
+              <span className='md-ht-1'>PLACE YOUR ORDER</span>
+            </button>
+          </Link>
+        ) : (
+          <button
+            className='card-btn btn btn-primary'
+            onClick={() => displayRazorpay(totalAmount)}
+          >
+            <span className='md-ht-1'>PROCEED TO PAY</span>
+          </button>
+        )}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ export { FeaturesCard } from "./Card/FeaturesCard";
 export { ProductCard } from "./Card/ProductCard";
 export { CartProductCard } from "./Card/CartProductCard";
 export { OrderSummaryCard } from "./Card/OrderSummaryCard";
+export { AddressCard } from "./Card/AddressCard/AddressCard";
 export { ProductsFilter } from "./ProductsFilter";
 export { Snackbar } from "./Snackbar";
 export { Input } from "./Form";
