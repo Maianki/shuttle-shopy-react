@@ -1,0 +1,37 @@
+/*CSS for page layout*/
+
+/*CSS for page layout*/
+.checkout-container {
+    display: grid;
+    min-height: calc(100vh - 11rem);
+    grid-template-rows: 1fr auto;
+}
+
+.checkout-main {
+    margin: 5rem;
+}
+
+.checkout-product-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+    justify-items: center;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+.checkout-product-details .card {
+    align-self: self-start;
+}
+
+.card-checkout-summary {
+    margin-top: 2rem;
+}
+
+.address-details {
+    align-self: self-start;
+    width: 100%;
+}
+
+.address-details-heading {
+    justify-content: space-around;
+}
