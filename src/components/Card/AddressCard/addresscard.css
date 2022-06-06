@@ -1,4 +1,6 @@
 .address-card {
     border: 1px solid var(--SECONDARY-COLOR);
     padding: 1rem;
+    display: flex;
+        justify-content: space-between;
 }

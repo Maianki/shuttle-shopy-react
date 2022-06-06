@@ -9,10 +9,12 @@ export function Input({
   value,
   setUserDetails,
   userDetails,
+  pattern = "false",
 }) {
   const changeHandler = (e) => {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
   };
+
   return (
     <input
       className='form-input form-input-lg pd-1'
@@ -23,6 +25,7 @@ export function Input({
       placeholder={placeholder}
       required={isRequired}
       onChange={changeHandler}
+      pattern={pattern?.length > 0 && pattern !== "false" ? pattern : undefined}
     />
   );
 }
