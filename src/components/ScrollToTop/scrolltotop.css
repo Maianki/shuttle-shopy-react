@@ -1,5 +1,6 @@
 .fab-position {
     position: fixed;
+    z-index: 999;
     bottom: 0;
     right: 0;
     cursor: pointer;

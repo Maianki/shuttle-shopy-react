@@ -35,3 +35,13 @@
 .address-details-heading {
     justify-content: space-around;
 }
+.address-form {
+
+    background-color: var(--GRAY-COLOR);
+    padding: 2rem 2.5rem;
+    border-radius: 5px;
+}
+
+.modal-btn {
+    margin-right: 0;
+}

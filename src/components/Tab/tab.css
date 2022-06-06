@@ -1,0 +1,48 @@
+.tabs {
+    min-width: 60rem;
+    border: 1px solid var(--PRIMARY-COLOR);
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.tab-nav {
+    display: flex;
+    border-bottom: 2px solid var(--PRIMARY-COLOR);
+    margin: 0;
+}
+
+.tab-list-inline {
+    list-style-type: none;
+    display: inline-block;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tab-nav .tab-list-inline {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.tab-list-inline:first-child {
+    border-right: 1px solid var(--PRIMARY-COLOR);
+    border-top-left-radius: 5px;
+}
+
+.tab-list-inline:last-child {
+    border-top-right-radius: 5px;
+}
+
+
+.outlet {
+    padding: 16px 8px;
+}
+
+.active-tab {
+    background-color: var(--SECONDARY-COLOR);
+}
+
+.btn-add-address {
+    align-self: flex-end;
+}
