@@ -3,13 +3,13 @@ import "./product-page.css";
 import { MdiFilter } from "../../assets/icons";
 import { Footer, ProductCard } from "../../components";
 import { ProductsFilter } from "../../components";
-import { useDocumentTitle } from "../../hooks";
-import { useFilteredData } from "../../hooks/useFilteredData";
+import { useDocumentTitle, useFilteredData, useWindowSize } from "../../hooks";
 
 export function ProductPage() {
   const [width, setWidth] = useState(window.innerWidth);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const { finalFilteredData: productsList } = useFilteredData();
+  const { width: innerWidth } = useWindowSize();
 
   useDocumentTitle("Products page");
 
@@ -17,16 +17,9 @@ export function ProductPage() {
     setIsOpenFilter((prev) => !prev);
   };
 
-  const updateWidth = () => {
-    setWidth(window.innerWidth);
-  };
-
   useEffect(() => {
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  });
-
-
+    setWidth(innerWidth);
+  }, [innerWidth]);
 
   return (
     <div className='productpage-container'>

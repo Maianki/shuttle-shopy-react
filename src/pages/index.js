@@ -7,3 +7,4 @@ export { SignUpPage } from "./SignupPage/SignUpPage";
 export { Wishlist } from "./Wishlist/Wishlist";
 export { Cart } from "./Cart/Cart";
 export { Checkout } from "./Checkout/Checkout";
+export { OrderSummary } from "./OrderSummary/OrderSummary";

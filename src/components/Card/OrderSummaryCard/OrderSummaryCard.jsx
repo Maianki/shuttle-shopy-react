@@ -6,14 +6,23 @@ import {
   calculateDeliveryCharges,
 } from "../../../utils/cart-and-wishlist-functions";
 import "./order-summary-card.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { initializeRazorpay } from "../../../utils/initializeRazorpay";
+import { useAddress, useSnackbar } from "../../../context";
 import { v4 as uuid } from "uuid";
 
 export function OrderSummaryCard() {
   const {
     cartWishlist: { cart },
+    cartWishlistDispatcher,
+    emptyCart,
   } = useCartWishlist();
+
+  const { addSnackbar } = useSnackbar();
+
+  const {
+    address: { currentAddress },
+  } = useAddress();
 
   const totalPrice = calculateTotalAmount(cart);
   const totalDiscount = calculateTotalDiscount(cart);
@@ -23,6 +32,7 @@ export function OrderSummaryCard() {
     totalPrice - (totalPrice - totalDiscount) + deliveryCharges;
 
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const displayRazorpay = async (amount) => {
     const res = await initializeRazorpay();
@@ -38,16 +48,19 @@ export function OrderSummaryCard() {
       name: "Shuttle Shopy",
       description: "Test transaction",
       handler: function (response) {
-        const paymentId = response.razorpay_payment_id;
+        const paymentId = response?.razorpay_payment_id;
         const orderId = uuid();
 
         const order = {
           paymentId,
           orderId,
           amountPaid: amount,
-          // orderedProducts: [...cartProducts],
-          // deliveryAddress: { ...orderDetails.orderAddress },
+          orderedProducts: [...cart],
+          deliveryAddress: { ...currentAddress },
         };
+        cartWishlistDispatcher({ type: "UPDATE_ORDERS", payload: order });
+        emptyCart();
+        navigate("/summary", { replace: true });
       },
       prefill: {
         name: "shuttle shopy",
@@ -57,6 +70,9 @@ export function OrderSummaryCard() {
     };
 
     const paymentObject = new window.Razorpay(options);
+    paymentObject.on("payment.failed", () =>
+      addSnackbar(`Payment failed please try again!`, "snackbar-danger")
+    );
     paymentObject.open();
   };
 

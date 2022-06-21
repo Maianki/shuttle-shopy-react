@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import { cartWishlistInitialState, cartWishlistReducer } from "../reducers";
 import axios from "axios";
 import { isInCart, isInWishlist } from "../utils/cart-and-wishlist-functions";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,useLocation} from "react-router-dom";
 import { useAuth } from "./auth-context";
 import { CART_API, WISHLIST_API } from "../constants/apiEndPoints";
 import { useSnackbar } from "./snackbar-context";
@@ -16,6 +16,7 @@ const CartWishlistProvider = ({ children }) => {
   } = useAuth();
 
   const navigate = useNavigate();
+  const {pathname} = useLocation()
 
   const [cartWishlist, cartWishlistDispatcher] = useReducer(
     cartWishlistReducer,
@@ -25,7 +26,6 @@ const CartWishlistProvider = ({ children }) => {
   const manageCart = async (product) => {
     const { cart } = cartWishlist;
     if (cart.length > 0 && isInCart(cart, product._id)) {
-      addSnackbar("Item is already in cart", "snackbar-primary");
       navigate("/cart");
     } else {
       try {
@@ -82,6 +82,16 @@ const CartWishlistProvider = ({ children }) => {
     }
   };
 
+  const emptyCart = async (products) => {
+    try {
+      await Promise.all(
+        cartWishlist.cart.map((product) =>manageDeleteItemIncart(product._id))
+      );
+    } catch (error) {
+      addSnackbar("Could not place your order try again", "snackbar-danger");
+    } 
+  };
+
   const manageDeleteItemIncart = async (productid) => {
     try {
       const response = await axios.delete(`/api/user/cart/${productid}`, {
@@ -91,7 +101,10 @@ const CartWishlistProvider = ({ children }) => {
       if (response.status === 200) {
         const { cart } = response.data;
         cartWishlistDispatcher({ type: "UPDATE_CART", payload: cart });
-        addSnackbar("Item deleted from cart", "snackbar-danger");
+       
+        if(pathname !== '/checkout'){
+          addSnackbar("Item deleted from cart", "snackbar-danger");
+        }
       }
     } catch (err) {
       console.log(err);
@@ -157,6 +170,7 @@ const CartWishlistProvider = ({ children }) => {
         cartWishlistDispatcher,
         manageWishlist,
         manageCart,
+        emptyCart,
         manipulateProductQtyIncart,
         manageDeleteItemIncart,
       }}
@@ -164,7 +178,7 @@ const CartWishlistProvider = ({ children }) => {
       {children}
     </cartWishlistContext.Provider>
   );
-};
+};;
 
 const useCartWishlist = () => useContext(cartWishlistContext);
 

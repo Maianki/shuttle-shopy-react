@@ -10,10 +10,11 @@ import {
   Cart,
   Profile,
   Checkout,
+  OrderSummary,
 } from "./pages";
 import {
-  AuthenticatedRoute,
-  NotAuthenticatedRoute,
+  RequireAuth,
+  RestrictAuth,
   Drawer,
   Navbar,
   ScrollToTop,
@@ -37,16 +38,17 @@ function App() {
       <Routes>
         <Route path='/' element={<LandingPage />}></Route>
         <Route path='/shop-now' element={<ProductPage />}></Route>
-        <Route element={<NotAuthenticatedRoute />}>
+        <Route element={<RestrictAuth />}>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/signup' element={<SignUpPage />}></Route>
         </Route>
 
-        <Route element={<AuthenticatedRoute />}>
+        <Route element={<RequireAuth />}>
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/wishlist' element={<Wishlist />}></Route>
           <Route path='/profile' element={<Profile />}></Route>
           <Route path='/checkout' element={<Checkout />}></Route>
+          <Route path='/summary' element={<OrderSummary />}></Route>
         </Route>
         <Route path='/mockman' element={<Mockman />}></Route>
         <Route path='*' element={<PageNotFound />}></Route>

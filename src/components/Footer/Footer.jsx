@@ -1,15 +1,22 @@
 import React from 'react'
-import "./footer.css"
+import { Link } from "react-router-dom";
+import "./footer.css";
 function Footer() {
   return (
     <footer className='footer flex-column align-items-center'>
       <ul className='list-unstyled'>
-        <li className='list-inline'>CONTACT US</li>
-        <li className='list-inline'>SHIPPING</li>
-        <li className='list-inline'>RETURNS</li>
-        <li className='list-inline'>CAREERS</li>
-        <li className='list-inline'>PRIVACY</li>
-        <li className='list-inline'>TERMS</li>
+        <Link to='/'>
+          <li className='list-inline footer-li'>HOME</li>
+        </Link>
+        <Link to='/shop-now'>
+          <li className='list-inline footer-li'>SHOP NOW</li>
+        </Link>
+        <Link to='/wishlist'>
+          <li className='list-inline footer-li'>WISHLIST</li>
+        </Link>
+        <Link to='/cart'>
+          <li className='list-inline footer-li'>CART</li>
+        </Link>
       </ul>
 
       <p className='text-xs'>
