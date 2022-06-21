@@ -47,7 +47,7 @@ export function CartProductCard({
   return (
     <div
       className={
-        pathname === "/checkout"
+        pathname === "/checkout" || pathname === "/summary"
           ? `align-items-center card-horizontal md-btm-1`
           : `card align-items-center card-horizontal`
       }

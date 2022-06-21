@@ -20,13 +20,13 @@ ReactDOM.render(
     <BrowserRouter>
       <SnackbarProvider>
         <AuthProvider>
-          <CartWishlistProvider>
-            <ProductsProvider>
+          <ProductsProvider>
+            <CartWishlistProvider>
               <AddressProvider>
                 <App />
               </AddressProvider>
-            </ProductsProvider>
-          </CartWishlistProvider>
+            </CartWishlistProvider>
+          </ProductsProvider>
         </AuthProvider>
       </SnackbarProvider>
     </BrowserRouter>

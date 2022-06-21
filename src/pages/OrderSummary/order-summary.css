@@ -1,0 +1,57 @@
+.order-summary-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 11rem);
+    padding-top: 5rem
+}
+
+.order-summary-main {
+    display: flex;
+    flex-grow: 1;
+    align-self: center;
+    padding: 2rem;
+}
+
+.card-summary {
+    width: 75vw;
+    max-width: 85rem;
+    min-width: 28rem;
+    padding: 2.4rem;
+    border: 1px solid var(--SECONDARY-COLOR);
+    border-radius: 5px;
+}
+
+.text-order-msg {
+    color: var(--ORDER-ALERT-COLOR)
+}
+
+.order-summary-details {
+    padding-top: 2rem;
+    display: flex;
+    height: 42rem;
+}
+
+.order-summary-details h3 {
+    padding-top: 2.5rem;
+}
+
+.order-summary-orders {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width:1048px) {
+    .order-summary-details {
+        flex-direction: column;
+    }
+
+    .order-summary-orders {
+        padding-top: 4rem;
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    .order-summary-details {
+        height: auto;
+    }
+}
