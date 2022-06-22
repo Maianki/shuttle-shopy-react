@@ -13,7 +13,6 @@ export function Login() {
   const [userDetails, setUserDetails] = useState({
     email: "",
     password: "",
-    isRememberMe: true,
   });
 
   const [showPassWord, setShowPassword] = useState(false);
@@ -67,33 +66,6 @@ export function Login() {
               </span>
             </div>
 
-            <div className='form-check md-vt-1 flex-row'>
-              <input
-                type='checkbox'
-                value={userDetails.isRememberMe}
-                onChange={() =>
-                  setUserDetails({
-                    ...userDetails,
-                    isRememberMe: !userDetails.isRememberMe,
-                  })
-                }
-                id='remember-me'
-              />
-              <label
-                className='form-label-inline text-sm text-primary'
-                htmlFor='remember-me'
-              >
-                Remember Me
-              </label>
-              <Link
-                className='text-sm text-bold-500 forgot-password'
-                to='forgot-pwd'
-                role='button'
-              >
-                Forgot Your password
-              </Link>
-            </div>
-
             <div className='flex-column '>
               <input
                 type='submit'
@@ -110,7 +82,7 @@ export function Login() {
                 New to shuttle shopy ?
               </p>
               <Link
-                className='btn btn-secondary text-center'
+                className='btn btn-secondary text-center btn-create-acc'
                 to='/signup'
                 role='button'
               >

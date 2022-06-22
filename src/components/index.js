@@ -17,3 +17,4 @@ export { ScrollToTop } from "./ScrollToTop/ScrollToTop";
 export { Modal } from "./Modal/Modal";
 export { Tabs } from "./Tab/Tabs";
 export { RestrictAuth, RequireAuth } from "./Authentication";
+export { EmptyPlaceholder } from "./EmptyPlaceholder/EmptyPlaceholder";

@@ -1,5 +1,7 @@
 .tabs {
-    min-width: 60rem;
+    width: 50vw;
+        min-width: 40rem;
+        max-width: 80rem;
     border: 1px solid var(--PRIMARY-COLOR);
     border-radius: 5px;
     margin-bottom: 2rem;

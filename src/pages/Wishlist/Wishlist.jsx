@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, ProductCard } from "../../components";
+import { Footer, ProductCard, EmptyPlaceholder } from "../../components";
 import { useCartWishlist } from "../../context";
 import { useDocumentTitle } from "../../hooks";
 
@@ -18,15 +18,19 @@ export function Wishlist() {
         <p className='md-ht-1 text-center'>
           You have {wishlist.length} items in your wishlist
         </p>
-        <section className='wishlist-products'>
-          {wishlist.map((product) => {
-            return (
-              <div key={product._id}>
-                <ProductCard product={product} />
-              </div>
-            );
-          })}
-        </section>
+        {wishlist.length <= 0 ? (
+          <EmptyPlaceholder />
+        ) : (
+          <section className='wishlist-products'>
+            {wishlist.map((product) => {
+              return (
+                <div key={product._id}>
+                  <ProductCard product={product} />
+                </div>
+              );
+            })}
+          </section>
+        )}
       </main>
       <Footer />
     </div>
