@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { BiHeartFill, BiTrashFill } from "../../../assets/icons";
 import { useCartWishlist } from "../../../context";
 import { isInWishlist } from "../../../utils/cartAndWishlistFunctions";
 import { useLocation } from "react-router-dom";
 import "./cart-product-card.css";
+import { throttle } from "../../../utils/throttle";
 
 export function CartProductCard({
   product,
@@ -39,6 +40,16 @@ export function CartProductCard({
   const handleQty = (productId, operation) => {
     manipulateProductQtyIncart(productId, operation);
   };
+
+  const throttledHandleQty = useMemo(() => throttle(handleQty, 400), []);
+  const throttledHandleWishlist = useMemo(
+    () => throttle(handleWishlist, 400),
+    []
+  );
+  const throttledRemoveCart = useMemo(
+    () => throttle(handleRemoveFromCart, 400),
+    []
+  );
 
   const date = new Date();
   const newDate = date.setDate(date.getDate() + 4);
@@ -78,7 +89,7 @@ export function CartProductCard({
             <div className='flex-row btn-quantity'>
               <button
                 className='btn-quantity-minus'
-                onClick={() => handleQty(_id, "decrement")}
+                onClick={() => throttledHandleQty(_id, "decrement")}
                 disabled={qty <= 1}
               >
                 -
@@ -87,14 +98,14 @@ export function CartProductCard({
               <div className='quantity-display'>{qty}</div>
               <button
                 className='btn-quantity-plus'
-                onClick={() => handleQty(_id, "increment")}
+                onClick={() => throttledHandleQty(_id, "increment")}
               >
                 +
               </button>
 
               <button
                 className='btn btn-outline-primary btn-remove-product'
-                onClick={() => handleRemoveFromCart(_id)}
+                onClick={() => throttledRemoveCart(_id)}
               >
                 <BiTrashFill />
               </button>
@@ -102,7 +113,7 @@ export function CartProductCard({
 
             <button
               className='card-horizontal-btn btn btn-primary'
-              onClick={handleWishlist}
+              onClick={throttledHandleWishlist}
             >
               <BiHeartFill />
               <span className='md-ht-1'>

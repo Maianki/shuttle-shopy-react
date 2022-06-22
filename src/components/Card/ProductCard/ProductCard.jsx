@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { BiHeart, BiHeartFill, FaSolidStar } from "../../../assets/icons";
 import { useCartWishlist } from "../../../context";
 import {
   isInCart,
   isInWishlist,
 } from "../../../utils/cartAndWishlistFunctions";
+import { throttle } from "../../../utils/throttle";
 
 function ProductCard({
   product,
@@ -36,6 +37,10 @@ function ProductCard({
     manageWishlist(product);
   };
 
+  const throttledHandleWishlist = throttle(handleWishlist, 400);
+
+  const throttledCartHandler = throttle(cartHandler, 400);
+
   return (
     <div className='card align-items-center'>
       <div className='card-header'>
@@ -44,14 +49,14 @@ function ProductCard({
         {isInWishlist(wishlist, _id) ? (
           <span
             className='card-dismiss btn-wishlist-fill'
-            onClick={() => handleWishlist(product)}
+            onClick={() => throttledHandleWishlist()}
           >
             <BiHeartFill />
           </span>
         ) : (
           <span
             className='card-dismiss btn-wishlist'
-            onClick={() => handleWishlist(product)}
+            onClick={() => throttledHandleWishlist()}
           >
             <BiHeart />
           </span>
@@ -78,7 +83,7 @@ function ProductCard({
               ? `card-btn btn btn-secondary`
               : `card-btn btn btn-primary`
           }
-          onClick={() => cartHandler(product)}
+          onClick={() => throttledCartHandler()}
         >
           <i className='fas fa-cart-plus'></i>
           <span className='md-ht-1'>

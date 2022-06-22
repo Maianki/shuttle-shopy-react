@@ -1,12 +1,12 @@
-export const throttle = (func) => {
-  let isDispatchable = true;
+export const throttle = (func, delay) => {
+  let flag = true;
   return function () {
-    if (isDispatchable) {
-      func();
-      isDispatchable = false;
-      setTimeout(() => {
-        isDispatchable = true;
-      }, 1000);
+    let args = arguments,
+      context = this;
+    if (flag) {
+      func.apply(context, args);
+      flag = false;
+      setTimeout(() => (flag = true), delay);
     }
   };
 };

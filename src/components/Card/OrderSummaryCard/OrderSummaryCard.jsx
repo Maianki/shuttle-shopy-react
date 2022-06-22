@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { initializeRazorpay } from "../../../utils/initializeRazorpay";
 import { useAddress, useSnackbar, useCartWishlist } from "../../../context";
 import { v4 as uuid } from "uuid";
+import { throttle } from "../../../utils/throttle";
 
 export function OrderSummaryCard() {
   const {
@@ -75,6 +76,8 @@ export function OrderSummaryCard() {
     paymentObject.open();
   };
 
+  const throttledDisplayRazorpay = throttle(displayRazorpay, 400);
+
   return (
     <div
       className={
@@ -126,7 +129,7 @@ export function OrderSummaryCard() {
         ) : (
           <button
             className='card-btn btn btn-primary'
-            onClick={() => displayRazorpay(totalAmount)}
+            onClick={() => throttledDisplayRazorpay(totalAmount)}
           >
             <span className='md-ht-1'>PROCEED TO PAY</span>
           </button>
