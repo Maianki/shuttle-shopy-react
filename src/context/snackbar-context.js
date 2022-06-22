@@ -11,8 +11,9 @@ const SnackbarProvider = ({ children }) => {
     snackbarInitialState
   );
 
-  const toastId = uuid();
+  
   const addSnackbar = (message, type) => {
+    const toastId = uuid();
     snackbarDispatcher({
       type: "ADD_SNACKBAR",
       payload: { toastId, type, message },
@@ -29,7 +30,7 @@ const SnackbarProvider = ({ children }) => {
     >
       {children}
       <section className='snackbar-container'>
-        {snackbarState.snackbars &&
+        {snackbarState.snackbars.length > 0 &&
           snackbarState.snackbars.map(({ message, type, toastId }) => {
             return (
               <Snackbar
