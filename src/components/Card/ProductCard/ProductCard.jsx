@@ -4,7 +4,7 @@ import { useCartWishlist } from "../../../context";
 import {
   isInCart,
   isInWishlist,
-} from "../../../utils/cart-and-wishlist-functions";
+} from "../../../utils/cartAndWishlistFunctions";
 
 function ProductCard({
   product,

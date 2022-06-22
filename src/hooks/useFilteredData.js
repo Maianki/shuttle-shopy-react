@@ -5,7 +5,7 @@ import {
   getFilteredByPriceRange,
   getFilteredByPriceSort,
   getFilteredBySearch,
-} from "../utils/products-filter-functions";
+} from "../utils/productsFilterFunctions";
 
 /**
  * custom hook to filterData based on filter appplied by user

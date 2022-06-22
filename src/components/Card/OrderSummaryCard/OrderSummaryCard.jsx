@@ -1,14 +1,13 @@
 import React from "react";
-import { useCartWishlist } from "../../../context";
 import {
   calculateTotalAmount,
   calculateTotalDiscount,
   calculateDeliveryCharges,
-} from "../../../utils/cart-and-wishlist-functions";
+} from "../../../utils/cartAndWishlistFunctions";
 import "./order-summary-card.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { initializeRazorpay } from "../../../utils/initializeRazorpay";
-import { useAddress, useSnackbar } from "../../../context";
+import { useAddress, useSnackbar, useCartWishlist } from "../../../context";
 import { v4 as uuid } from "uuid";
 
 export function OrderSummaryCard() {

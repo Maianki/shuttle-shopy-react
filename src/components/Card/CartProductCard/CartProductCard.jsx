@@ -1,7 +1,7 @@
 import React from "react";
 import { BiHeartFill, BiTrashFill } from "../../../assets/icons";
 import { useCartWishlist } from "../../../context";
-import { isInWishlist } from "../../../utils/cart-and-wishlist-functions";
+import { isInWishlist } from "../../../utils/cartAndWishlistFunctions";
 import { useLocation } from "react-router-dom";
 import "./cart-product-card.css";
 
