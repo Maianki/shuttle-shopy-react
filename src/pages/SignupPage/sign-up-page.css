@@ -11,3 +11,7 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
+.form-link-text .text-primary {
+  text-decoration: underline;
+  padding-left: 2px;
+}

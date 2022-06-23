@@ -17,3 +17,14 @@
     transform: translate(50%, -50%);
     z-index: 1000;
 }
+.btn-close-modal {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+
+.btn-close-modal:hover {
+    font-size: 2.4rem;
+}

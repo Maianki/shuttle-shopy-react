@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./product-page.css";
 import { MdiFilter } from "../../assets/icons";
-import { Footer, ProductCard } from "../../components";
-import { ProductsFilter } from "../../components";
+import {
+  Footer,
+  ProductCard,
+  ProductsFilter,
+  EmptyPlaceholder,
+} from "../../components";
 import { useDocumentTitle, useFilteredData, useWindowSize } from "../../hooks";
 
 export function ProductPage() {
@@ -46,11 +50,18 @@ export function ProductPage() {
         <p className='flex-column text-lg text-decoration-underline'>Filters</p>
       </div>
 
-      <main className='productpage-main flex-row'>
-        {productsList.map((product) => {
-          return <ProductCard key={product._id} product={product} />;
-        })}
-      </main>
+      {productsList.length > 0 ? (
+        <main className='productpage-main flex-row'>
+          {productsList.map((product) => {
+            return <ProductCard key={product._id} product={product} />;
+          })}
+        </main>
+      ) : (
+        <main className='productpage-main'>
+          <EmptyPlaceholder />
+        </main>
+      )}
+
       <Footer />
     </div>
   );

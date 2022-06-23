@@ -20,6 +20,7 @@ export const products = [
     img: "https://res.cloudinary.com/dj5aind8q/image/upload/v1649613348/Shuttle%20shoppy/Feather-badminton-shuttle_uhivcm.png",
     isOutOfStock: false,
     rating: 4,
+    id: 1,
   },
   {
     _id: uuid(),
@@ -35,6 +36,7 @@ export const products = [
     img: "https://res.cloudinary.com/dj5aind8q/image/upload/v1649613343/Shuttle%20shoppy/Yonex-Arcsaber-11_lswixj.jpg",
     isOutOfStock: false,
     rating: 3.8,
+    id: 2,
   },
   {
     _id: uuid(),
@@ -50,6 +52,7 @@ export const products = [
     img: "https://res.cloudinary.com/dj5aind8q/image/upload/v1649613345/Shuttle%20shoppy/Yonex-Nanoray-18i_o1mii4.png",
     isOutOfStock: false,
     rating: 4.3,
+    id: 3,
   },
   {
     _id: uuid(),
@@ -65,6 +68,7 @@ export const products = [
     img: "https://res.cloudinary.com/dj5aind8q/image/upload/v1649613350/Shuttle%20shoppy/Plastic-badminton-shuttle_gq0xed.png",
     isOutOfStock: true,
     rating: 2.8,
+    id: 4,
   },
   {
     _id: uuid(),
@@ -80,10 +84,11 @@ export const products = [
     img: "https://res.cloudinary.com/dj5aind8q/image/upload/v1649613349/Shuttle%20shoppy/badminton-bag_fqyuii.png",
     isOutOfStock: false,
     rating: 4.8,
+    id: 5,
   },
   {
     _id: uuid(),
-    name: "SHB-50-EX-Shoes",
+    name: "SHB 50 EX Shoes",
     category: "Badminton Shoes",
     badge: "Trending",
     price: {
@@ -95,6 +100,7 @@ export const products = [
     img: "https://res.cloudinary.com/dj5aind8q/image/upload/v1649613357/Shuttle%20shoppy/SHB-50-EX-Shoes_eoflnx.png",
     isFastDelivery: false,
     rating: 3.5,
+    id: 6,
   },
   {
     _id: uuid(),
@@ -110,5 +116,6 @@ export const products = [
     img: "https://res.cloudinary.com/dj5aind8q/image/upload/v1649613355/Shuttle%20shoppy/Power-Cushion-Shoes_y8dif3.png",
     isOutOfStock: true,
     rating: 4.1,
+    id: 7,
   },
 ];

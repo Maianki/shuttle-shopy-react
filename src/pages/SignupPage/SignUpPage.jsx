@@ -17,7 +17,6 @@ export function SignUpPage() {
     email: "",
     password: "",
     confirmPassword: "",
-    termsAndCondition: true,
   });
 
   const { addSnackbar } = useSnackbar();
@@ -39,7 +38,6 @@ export function SignUpPage() {
         email: "",
         password: "",
         confirmPassword: "",
-        termsAndCondition: "",
       });
     } else {
       addSnackbar(
@@ -74,7 +72,7 @@ export function SignUpPage() {
                 type='text'
                 id='lastName'
                 name='lastName'
-                placeholder='doe'
+                placeholder='Doe'
                 value={userDetails.lastName}
                 setUserDetails={setUserDetails}
                 userDetails={userDetails}
@@ -141,28 +139,6 @@ export function SignUpPage() {
                 {showPassWord.confirmPassword ? <BiEye /> : <BiEyeSlash />}
                 <i className='fas fa-eye'></i>
               </span>
-            </div>
-
-            <div className='form-check md-vt-1 flex-row'>
-              <input
-                type='checkbox'
-                value='demo'
-                name='termsAndCondition'
-                id='terms-and-conditions'
-                checked={userDetails.termsAndCondition}
-                onChange={(e) =>
-                  setUserDetails({
-                    ...userDetails,
-                    termsAndCondition: !userDetails.termsAndCondition,
-                  })
-                }
-              />
-              <label
-                className='form-label-inline text-sm text-primary'
-                htmlFor='terms-and-conditions'
-              >
-                I accept all terms and conditions.
-              </label>
             </div>
 
             <div className='flex-column'>

@@ -11,6 +11,7 @@ import {
   Profile,
   Checkout,
   OrderSummary,
+  SingleProduct,
 } from "./pages";
 import {
   RequireAuth,
@@ -38,6 +39,7 @@ function App() {
       <Routes>
         <Route path='/' element={<LandingPage />}></Route>
         <Route path='/shop-now' element={<ProductPage />}></Route>
+        <Route path='/shop-now/:productId' element={<SingleProduct />}></Route>
         <Route element={<RestrictAuth />}>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/signup' element={<SignUpPage />}></Route>

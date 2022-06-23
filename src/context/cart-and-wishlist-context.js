@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import { cartWishlistInitialState, cartWishlistReducer } from "../reducers";
 import axios from "axios";
-import { isInCart, isInWishlist } from "../utils/cart-and-wishlist-functions";
+import { isInCart, isInWishlist } from "../utils/cartAndWishlistFunctions";
 import { useNavigate ,useLocation} from "react-router-dom";
 import { useAuth } from "./auth-context";
 import { CART_API, WISHLIST_API } from "../constants/apiEndPoints";
@@ -51,7 +51,7 @@ const CartWishlistProvider = ({ children }) => {
         const { status, data } = err.response;
 
         if (status === 500 && data.message === "jwt must be provided") {
-          addSnackbar("Please login to add item to cart", "snackbar-danger");
+          navigate("/login");
         }
       }
     }
@@ -154,10 +154,7 @@ const CartWishlistProvider = ({ children }) => {
         const { status, data } = err.response;
         console.log(err.response);
         if (status === 500 && data.message === "jwt must be provided") {
-          addSnackbar(
-            "Please login to add item to wishlist",
-            "snackbar-danger"
-          );
+          navigate("/login");
         }
       }
     }

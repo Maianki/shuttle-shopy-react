@@ -1,8 +1,8 @@
-.shuttle-motion-snackbar {
+.shuttle-shopy-snackbar {
     margin-top: 1rem;
-    transition: all .3s ease-in;
     bottom: 1rem;
     right: 1rem;
+    transition: all .3s ease-in;
 }
 
 .snackbar-container {
@@ -11,5 +11,4 @@
     z-index: var(--Z-INDEX-999);
     bottom: 1.5rem;
     right: 1rem;
-    animation: toast-in-right .7s;
 }

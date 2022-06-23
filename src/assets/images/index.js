@@ -4,5 +4,14 @@ import loginIcon from "./user.png";
 import cartIcon from "./shopping-bag.png";
 import profileIcon from "./profile.png";
 import searchIcon from "./magnifying-glass.png";
+import openBox from "./open-box.png";
 
-export { logo, wishlistIcon, loginIcon, cartIcon, profileIcon, searchIcon };
+export {
+  logo,
+  wishlistIcon,
+  loginIcon,
+  cartIcon,
+  profileIcon,
+  searchIcon,
+  openBox,
+};
