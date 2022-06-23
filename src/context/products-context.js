@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import { productsReducer, productsAndFilterInitialState } from "../reducers";
 import { useAxios } from "../hooks";
 import { PRODUCTS_API } from "../constants/apiEndPoints";
+
 export const productsContext = createContext({});
 
 const ProductsProvider = ({ children }) => {

@@ -42,10 +42,8 @@ export function CartProductCard({
   };
 
   const throttledHandleQty = useMemo(() => throttle(handleQty, 400), []);
-  const throttledHandleWishlist = useMemo(
-    () => throttle(handleWishlist, 400),
-    []
-  );
+  const throttledHandleWishlist = throttle(handleWishlist, 400);
+
   const throttledRemoveCart = useMemo(
     () => throttle(handleRemoveFromCart, 400),
     []
