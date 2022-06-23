@@ -4,7 +4,8 @@ import { useAddress } from "../../../context";
 import { useLocation } from "react-router-dom";
 
 export function AddressEditCard({ currAddress }) {
-  const { addNeWAddress, editAddress, isEditAddress } = useAddress();
+  const { addNeWAddress, editAddress, isEditAddress, handleModal } =
+    useAddress();
 
   const { pathname } = useLocation();
 
@@ -50,6 +51,7 @@ export function AddressEditCard({ currAddress }) {
     } else {
       addNeWAddress(addressDetails);
     }
+    handleModal(false);
   };
 
   return (

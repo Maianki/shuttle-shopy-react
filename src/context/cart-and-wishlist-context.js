@@ -154,10 +154,7 @@ const CartWishlistProvider = ({ children }) => {
         const { status, data } = err.response;
         console.log(err.response);
         if (status === 500 && data.message === "jwt must be provided") {
-          addSnackbar(
-            "Please login to add item to wishlist",
-            "snackbar-danger"
-          );
+          navigate("/login");
         }
       }
     }
