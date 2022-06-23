@@ -37,7 +37,7 @@ export function SingleProduct() {
         <div className='align-items-center card-horizontal card-single-product'>
           <div className='card-header'>
             <img
-              className='single-product-img card-horizontal-img'
+              className='single-product-img responsive-img card-horizontal-img'
               src={product?.img}
               alt={product?.name}
             />
