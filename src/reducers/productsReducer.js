@@ -3,7 +3,7 @@ export const productsAndFilterInitialState = {
   sortByPrice: "none",
   filterByCategory: [],
   filterByRating: [],
-  filterByPriceRange: 0,
+  filterByPriceRange: 4000,
   isOutOFStock: true,
   filteredDataBySearch: "",
 };

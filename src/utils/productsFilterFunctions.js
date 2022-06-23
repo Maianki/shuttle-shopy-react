@@ -38,7 +38,7 @@ const getFilteredByRating = (products, filterByRating) => {
 
 const getFilteredByPriceRange = (products, priceRange) => {
   return products.filter(
-    ({ price: { discounted: productPrice } }) => productPrice > priceRange
+    ({ price: { discounted: productPrice } }) => productPrice < priceRange
   );
 };
 
