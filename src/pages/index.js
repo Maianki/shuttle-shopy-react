@@ -8,3 +8,4 @@ export { Wishlist } from "./Wishlist/Wishlist";
 export { Cart } from "./Cart/Cart";
 export { Checkout } from "./Checkout/Checkout";
 export { OrderSummary } from "./OrderSummary/OrderSummary";
+export { SingleProduct } from "./SingleProduct/SingleProduct";

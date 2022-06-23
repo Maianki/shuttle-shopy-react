@@ -19,6 +19,7 @@ function ProductCard({
       discounted: discountedPrice,
       discount: discountPercent,
     },
+    isOutOfStock,
     name,
     rating,
   },
@@ -43,6 +44,9 @@ function ProductCard({
 
   return (
     <div className='card align-items-center'>
+      {isOutOfStock && (
+        <div class='card-overlay align-items-center'>OUT OF STOCK</div>
+      )}
       <div className='card-header'>
         <img className='card-img' src={img} alt={name} />
         <span className='card-badge badge'>{badge}</span>
