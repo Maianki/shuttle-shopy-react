@@ -90,7 +90,7 @@ export const products = [
     _id: uuid(),
     name: "SHB 50 EX Shoes",
     category: "Badminton Shoes",
-    badge: "Trending",
+    badge: "New",
     price: {
       original: 1076,
       discounted: 976,
