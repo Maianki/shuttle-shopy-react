@@ -205,7 +205,7 @@ export const products = [
     _id: uuid(),
     name: "Ultra III Badminton Shoes",
     category: "Badminton Shoes",
-    badge: "Trending",
+    badge: "New",
     price: {
       original: 4290,
       discounted: 2990,
