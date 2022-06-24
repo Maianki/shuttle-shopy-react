@@ -18,7 +18,7 @@ export function FilterHeader() {
           })
         }
       >
-        clear all
+        CLEAR ALL
       </button>
     </li>
   );

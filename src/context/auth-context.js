@@ -13,6 +13,7 @@ const AuthProvider = ({ children }) => {
 
   const handleSignup = async (userInfo) => {
     const { firstName, lastName, email, password, confirmPassword } = userInfo;
+
     try {
       const response = await axios.post(SIGNUP_API, {
         firstName,

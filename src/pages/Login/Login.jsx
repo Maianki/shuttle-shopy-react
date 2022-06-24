@@ -70,7 +70,7 @@ export function Login() {
               <input
                 type='submit'
                 className='btn btn-primary form-btn text-center'
-                value='sign in'
+                value='Sign in'
               />
               <button
                 onClick={guestLoginHandler}
@@ -86,7 +86,7 @@ export function Login() {
                 to='/signup'
                 role='button'
               >
-                Create Your Account
+                Create your account
               </Link>
             </div>
           </form>

@@ -23,7 +23,7 @@ export function PriceRangeFilter() {
         value={products.filterByPriceRange}
       />
       <div className='flex-row price-slider-range'>
-        <p className='text-sm'>1</p>
+        <p className='text-sm'>Rs. 1</p>
         <p className='text-sm'>Rs. 4000</p>
       </div>
     </li>
