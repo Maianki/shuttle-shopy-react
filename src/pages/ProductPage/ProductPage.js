@@ -6,6 +6,7 @@ import {
   ProductCard,
   ProductsFilter,
   EmptyPlaceholder,
+  Pagination,
 } from "../../components";
 import { useDocumentTitle, useFilteredData, useWindowSize } from "../../hooks";
 
@@ -52,9 +53,10 @@ export function ProductPage() {
 
       {productsList.length > 0 ? (
         <main className='productpage-main flex-row'>
-          {productsList.map((product) => {
+          {/* {productsList.map((product) => {
             return <ProductCard key={product._id} product={product} />;
-          })}
+          })} */}
+          <Pagination RenderComponent={ProductCard} data={productsList} />
         </main>
       ) : (
         <main className='productpage-main'>
