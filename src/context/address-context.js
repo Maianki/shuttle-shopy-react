@@ -7,7 +7,7 @@ const AddressContext = createContext(null);
 export const AddressProvider = ({ children }) => {
   const [address, setAddress] = useState({
     addressList: [],
-    currentAddress: {},
+    currentAddress: null,
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditAddress, setIsEditAddress] = useState(false);
