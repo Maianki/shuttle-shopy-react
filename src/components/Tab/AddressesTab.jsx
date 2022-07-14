@@ -32,6 +32,9 @@ export function AddressesTab() {
       {addressList?.map((address) => {
         return <AddressCard key={address._id} address={address} />;
       })}
+      {!addressList?.length && (
+        <p className='pd-ht-1'>No address to display.</p>
+      )}
     </div>
   );
 }

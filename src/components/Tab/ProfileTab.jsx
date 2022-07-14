@@ -21,7 +21,7 @@ export function ProfileTab() {
     });
     setAddress({
       addressList: [],
-      currentAddress: {},
+      currentAddress: null,
     });
   };
   return (
