@@ -35,10 +35,8 @@ export const AddressProvider = ({ children }) => {
             setAddress((prev) => ({
               ...prev,
               addressList: res.data.addressList,
-              currentAddress: res.data.addressList[0],
             }));
           }
-          console.log(res.data.response);
         } catch (err) {
           console.error(err);
         }

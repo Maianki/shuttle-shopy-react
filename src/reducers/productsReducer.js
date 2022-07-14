@@ -50,7 +50,6 @@ export const productsReducer = (state, action) => {
       };
 
     case "SET_FILTERED_DATA_BY_SEARCH":
-      console.log(payload);
       return {
         ...state,
         filteredDataBySearch: payload,

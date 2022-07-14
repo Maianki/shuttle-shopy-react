@@ -1,5 +1,5 @@
 import React from "react";
-import { AddressCard } from "..";
+import { AddressCard, AddressEditCard, Modal } from "..";
 import { useAddress } from "../../context";
 
 export function AddressesTab() {
@@ -7,6 +7,7 @@ export function AddressesTab() {
     address: { addressList },
     handleModal,
     handleIsEditAddress,
+    isModalOpen,
   } = useAddress();
 
   const handleNewAddress = () => {
@@ -16,12 +17,18 @@ export function AddressesTab() {
 
   return (
     <div className='flex-column'>
+      {isModalOpen && (
+        <Modal>
+          <AddressEditCard />
+        </Modal>
+      )}
       <button
         className='btn btn-primary btn-add-address'
         onClick={handleNewAddress}
       >
         Add New Address
       </button>
+
       {addressList?.map((address) => {
         return <AddressCard key={address._id} address={address} />;
       })}

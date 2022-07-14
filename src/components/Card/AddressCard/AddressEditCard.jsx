@@ -46,7 +46,7 @@ export function AddressEditCard({ currAddress }) {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (pathname === "/profile") {
+    if (pathname === "/profile" && isEditAddress === true) {
       editAddress(addressDetails);
     } else {
       addNeWAddress(addressDetails);
