@@ -10,6 +10,7 @@ export function Snackbar({ message, type, handleRemoveSnackbar }) {
     }, 1000);
 
     return () => clearTimeout(timerId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

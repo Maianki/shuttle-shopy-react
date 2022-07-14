@@ -24,6 +24,7 @@ export function OrderSummaryCard() {
     address: { currentAddress },
   } = useAddress();
 
+  console.log(currentAddress);
   const totalPrice = calculateTotalAmount(cart);
   const totalDiscount = calculateTotalDiscount(cart);
   const deliveryCharges = calculateDeliveryCharges(totalPrice);
@@ -35,6 +36,10 @@ export function OrderSummaryCard() {
   const navigate = useNavigate();
 
   const displayRazorpay = async (amount) => {
+    if (!currentAddress) {
+      addSnackbar(`Please choose an address`, "snackbar-danger");
+      return;
+    }
     const res = await initializeRazorpay();
     if (!res) {
       console.log("You are offline... Failed to load Rzorpay SDK.");

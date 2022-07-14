@@ -30,9 +30,10 @@ export const addAddressHandler = function (schema, request) {
         }
       );
     }
-    const userAddressList = schema.users.findBy({
-      _id: userId,
-    }).addressList;
+    const userAddressList =
+      schema.users.findBy({
+        _id: userId,
+      }).addressList ?? [];
     const { address } = JSON.parse(request.requestBody);
     userAddressList.push({
       ...address,

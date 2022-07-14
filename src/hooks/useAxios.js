@@ -27,6 +27,6 @@ export const useAxios = (url, encodedToken = "") => {
         console.log(err);
       }
     })();
-  }, [url, encodedToken]);
+  }, [encodedToken, url]);
   return { response };
 };

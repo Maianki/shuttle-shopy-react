@@ -7,7 +7,7 @@ const AddressContext = createContext(null);
 export const AddressProvider = ({ children }) => {
   const [address, setAddress] = useState({
     addressList: [],
-    currentAddress: {},
+    currentAddress: null,
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditAddress, setIsEditAddress] = useState(false);
@@ -35,10 +35,8 @@ export const AddressProvider = ({ children }) => {
             setAddress((prev) => ({
               ...prev,
               addressList: res.data.addressList,
-              currentAddress: res.data.addressList[0],
             }));
           }
-          console.log(res.data.response);
         } catch (err) {
           console.error(err);
         }

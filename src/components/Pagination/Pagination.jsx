@@ -3,8 +3,15 @@ import { useEffect } from "react";
 import "./pagination.css";
 
 export function Pagination({ RenderComponent, data, dataLimit = 6 }) {
-  const [pages] = useState(Math.ceil(data.length / dataLimit));
+  const [pages, setPages] = useState(Math.ceil(data.length / dataLimit));
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    if (Math.ceil(data.length / dataLimit) < currentPage) {
+      setPages(1);
+      setCurrentPage(1);
+    }
+  }, [data, dataLimit, currentPage]);
 
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: "0px" });
@@ -34,8 +41,6 @@ export function Pagination({ RenderComponent, data, dataLimit = 6 }) {
     return new Array(pageLimit).fill().map((_, idx) => idx + 1);
   };
 
-  console.log(getPaginationGroup());
-
   return (
     <div className='pagination-container'>
       <div className='products-container'>
@@ -49,7 +54,7 @@ export function Pagination({ RenderComponent, data, dataLimit = 6 }) {
           onClick={goToPreviousPage}
           className={`prev ${currentPage === 1 ? "disabled" : ""}`}
         >
-          prev
+          Prev
         </button>
 
         {/* show page numbers */}
@@ -70,7 +75,7 @@ export function Pagination({ RenderComponent, data, dataLimit = 6 }) {
           onClick={goToNextPage}
           className={`next ${currentPage === pages ? "disabled" : ""}`}
         >
-          next
+          Next
         </button>
       </div>
     </div>

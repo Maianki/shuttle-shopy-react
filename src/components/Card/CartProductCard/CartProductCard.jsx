@@ -41,11 +41,13 @@ export function CartProductCard({
     manipulateProductQtyIncart(productId, operation);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const throttledHandleQty = useMemo(() => throttle(handleQty, 400), []);
   const throttledHandleWishlist = throttle(handleWishlist, 400);
 
   const throttledRemoveCart = useMemo(
     () => throttle(handleRemoveFromCart, 400),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 

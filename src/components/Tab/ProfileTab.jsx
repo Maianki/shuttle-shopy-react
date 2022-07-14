@@ -1,16 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
-import { useCartWishlist } from "../../context";
+import { useAddress, useCartWishlist, useProducts } from "../../context";
 
 export function ProfileTab() {
   const { authDispatcher } = useAuth();
   const { cartWishlistDispatcher } = useCartWishlist();
+  const { productsDispatcher, productsAndFilterInitialState } = useProducts();
+  const { setAddress } = useAddress();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     authDispatcher({ type: "LOGGED_OUT" });
     cartWishlistDispatcher({ type: "RESET_CART_AND_WISHLIST" });
+    productsDispatcher({
+      type: "CLEAR_ALL",
+      payload: {
+        ...productsAndFilterInitialState,
+      },
+    });
+    setAddress({
+      addressList: [],
+      currentAddress: {},
+    });
   };
   return (
     <div>
